@@ -6,5 +6,6 @@ import WEB2.ifpe.model.Palestrante;
 
 public interface PalestranteDAO extends JpaRepository<Palestrante, Integer> {
 
-	//Palestrante findByEmail(String email);
+	Palestrante buscaLogin(String email, String senha);
+	
 }

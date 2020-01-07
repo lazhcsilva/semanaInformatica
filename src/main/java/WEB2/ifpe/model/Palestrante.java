@@ -19,6 +19,9 @@ public class Palestrante {
 	@NotBlank(message = "Email deve ser preenchido")
 	@Column(length = 60)
 	private String email;
+	
+	@NotBlank(message = "Senha deve ser preenchida")
+	private String senha;
 
 	public Integer getIdPalestrante() {
 		return idPalestrante;
@@ -42,6 +45,14 @@ public class Palestrante {
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	public String getSenha() {
+		return senha;
+	}
+
+	public void setSenha(String senha) {
+		this.senha = senha;
 	}
 	
 	
