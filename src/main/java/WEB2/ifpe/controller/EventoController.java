@@ -1,7 +1,5 @@
 package WEB2.ifpe.controller;
 
-
-
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,12 +29,12 @@ public class EventoController {
 	@Autowired
 	private SalaService salaService;
 	
-	@GetMapping("/listarEvento")
+	/*@GetMapping("/listarEvento")
 	public String exibirLista(Model model) {
 		model.addAttribute("lista", this.eventoService.listarTodos(Sort.by("nomeAtividade")));
 		return "listas/listar-evento";
 	}
-	
+	*/
 	@GetMapping("/exibirFormEvento")
 	public String exibirForm(Evento evento , Model model) {
 		model.addAttribute("listaPalestrante", this.palestranteService.listarTodos(Sort.by("nome")));
@@ -44,7 +42,7 @@ public class EventoController {
 		return "cadastro/cadastrar-evento";
 	}
 	
-
+/*
 	@GetMapping("/editarEvento")
 	public String editarProduto(Integer idEvento, Model model) {
 		model.addAttribute("evento", this.eventoService.obterPorId(idEvento));
@@ -58,7 +56,7 @@ public class EventoController {
 		this.eventoService.remover(idEvento);
 		return "redirect:/listarEvento";
 		
-	}
+	}*/
 	
 	@PostMapping("/salvarEvento")
 	public String salvarEvento(@Valid Evento evento,

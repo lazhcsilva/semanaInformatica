@@ -38,17 +38,17 @@ public class ParticipanteController {
 		return "/cadastro";
 	}
 	
-	/*@GetMapping("/editarParticipante")
+	@GetMapping("/editarParticipante")
 	public String editarParticipante(Integer idParticipante, Model model) {
 		model.addAttribute("participante", this.participanteService.obterPorId(idParticipante));
 		return "participante/participante-form";
-	}*/
+	}
 	
 	@PostMapping("/salvarParticipante")
 	public String salvarParticipante(@Valid Participante participante, 
 			BindingResult br, RedirectAttributes ra,Errors errors) {
 		if (errors.hasErrors()) {
-			ra.addFlashAttribute("mensagemErro", "Não foi possível criar usuário: " + errors.getFieldErrors());
+			ra.addFlashAttribute("mensagemErro", "Não foi possível criar usuário: " + errors.getFieldErrors().get(0).getDefaultMessage());
 
 			return "redirect:/exibirFormParticipante";
 		} else {

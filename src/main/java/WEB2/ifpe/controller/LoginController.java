@@ -2,19 +2,15 @@ package WEB2.ifpe.controller;
 
 import javax.servlet.http.HttpSession;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import WEB2.ifpe.model.Palestrante;
-import WEB2.ifpe.persistence.PalestranteDAO;
+
 
 @Controller
 public class LoginController {
 
+	/*
 	@Autowired
 	private PalestranteDAO palestranteDAO;
 	
@@ -35,7 +31,7 @@ public class LoginController {
 		}
 		
 		return "/index";
-	}
+	}*/
 	
 	@PostMapping("/logout")
 	public String logout(HttpSession sessao) {
