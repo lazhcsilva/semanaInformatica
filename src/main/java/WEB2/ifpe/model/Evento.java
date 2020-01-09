@@ -21,7 +21,7 @@ public class Evento {
 	@NotBlank(message = "Nome da Atividade deve ser preenchido")
 	private String nomeAtividade;
 	
-	//private date data;
+    //private Date data;
 	
 	@ManyToOne
 	@NotNull(message = "Palestrante deve ser selecionado")

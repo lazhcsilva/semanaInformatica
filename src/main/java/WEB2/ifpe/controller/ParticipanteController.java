@@ -66,26 +66,26 @@ public class ParticipanteController {
 		return "/cadastro";
 	}
 	
-	/*@GetMapping("/editarParticipante")
+	@GetMapping("/editarParticipante")
 	public String editarParticipante(Integer idParticipante, Model model) {
 		model.addAttribute("participante", this.participanteService.obterPorId(idParticipante));
 		return "participante/participante-form";
-	}*/
+	}
 	
 	@PostMapping("/salvarParticipante")
 	public String salvarParticipante(@Valid Participante participante, 
-			BindingResult br, RedirectAttributes ra,Errors errors) {
+			BindingResult br,Model model, RedirectAttributes ra,Errors errors) {
 		if (errors.hasErrors()) {
-			ra.addFlashAttribute("mensagemErro", "Não foi possível criar usuário: " + errors.getFieldErrors());
 
-			return "redirect:/exibirFormParticipante";
+			return this.exibirForm(participante);
 		} else {
 			try {
 				this.participanteService.salvarParticipante(participante);
 				ra.addFlashAttribute("mensagem", "Conta criada com sucesso!");
 			} catch (ServiceException | MessagingException e) {
 				ra.addFlashAttribute("mensagemErro", "Não foi possível criar usuário: " + e.getMessage());
-
+                ra.addFlashAttribute("participante", participante);
+                 
 				return "redirect:/exibirFormParticipante";
 			}
 		}
