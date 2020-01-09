@@ -1,7 +1,6 @@
 package WEB2.ifpe.service;
 
 import java.io.UnsupportedEncodingException;
-import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.List;
 
@@ -14,6 +13,7 @@ import org.springframework.stereotype.Service;
 
 import WEB2.ifpe.model.Participante;
 import WEB2.ifpe.persistence.ParticipanteDAO;
+import WEB2.ifpe.util.Util;
 
 @Service
 public class ParticipanteService {
@@ -54,7 +54,7 @@ public boolean salvarParticipante(Participante participante)throws ServiceExcept
 	}  else {
 			String senhaCriptografada;
 			try {
-				senhaCriptografada = criptografarSenha(participante.getSenha());
+				senhaCriptografada = Util.criptografarSenha(participante.getSenha());
 				participante.setSenha(senhaCriptografada);
 				this.participanteDAO.save(participante);	
 			} catch (Exception e) {
@@ -67,27 +67,17 @@ public boolean salvarParticipante(Participante participante)throws ServiceExcept
 	 
 }
 
-public String criptografarSenha(String senha)  throws NoSuchAlgorithmException, 
-UnsupportedEncodingException{
+public Participante logarParticipante(String email, String senha) throws ServiceException, NoSuchAlgorithmException, UnsupportedEncodingException {	
 	
- String senhaCriptografada = null;
-	
-	MessageDigest algorithm = MessageDigest.getInstance("SHA-256");
-	byte messageDigest[] = algorithm.digest(senha.getBytes("UTF-8"));
-	 
-	StringBuilder hexString = new StringBuilder();
-	for (byte b : messageDigest) {
-	  hexString.append(String.format("%02X", 0xFF & b));
+	String senhaCriptografada = Util.criptografarSenha(senha);
+	Participante participante = this.participanteDAO.participanteLogin(email, senhaCriptografada);
+
+	if (participante == null) {
+		throw new ServiceException("Login/senha não encontrados");
 	}
-	
-	senhaCriptografada = hexString.toString();	
-	algorithm.reset();
-	
-	return senhaCriptografada;
-	
-}//fim do metodo criptografarSenha
 
-
+	return participante;
+}
 
 	
 }

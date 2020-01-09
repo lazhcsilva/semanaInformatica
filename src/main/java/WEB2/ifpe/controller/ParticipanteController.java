@@ -1,6 +1,11 @@
 package WEB2.ifpe.controller;
 
+import java.io.UnsupportedEncodingException;
+import java.security.NoSuchAlgorithmException;
+
 import javax.mail.MessagingException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.hibernate.service.spi.ServiceException;
@@ -11,9 +16,12 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import WEB2.ifpe.model.Palestrante;
 import WEB2.ifpe.model.Participante;
 import WEB2.ifpe.service.ParticipanteService;
 
@@ -25,7 +33,27 @@ public class ParticipanteController {
 	@Autowired
 	private ParticipanteService participanteService;
 	
-	
+	@PostMapping("/participanteLogin")
+	public String participanteLogin(HttpServletRequest request, @ModelAttribute Palestrante palestrante, @RequestParam(name = "retorno", required = false) String retorno, RedirectAttributes ra, HttpSession session) throws NoSuchAlgorithmException, UnsupportedEncodingException {
+		
+		String redirect = "redirect:/index";
+		if (retorno != null) {
+			redirect = "redirect:" + retorno;
+		}
+
+		Participante participanteLogado;
+		try {
+			participanteLogado = this.participanteService.logarParticipante(palestrante.getEmail(), palestrante.getSenha());
+			session.setAttribute("usuarioLogado", participanteLogado);
+		} catch (ServiceException e) {
+			ra.addFlashAttribute("mensagemErro", e.getMessage());
+
+			return "redirect:/perfil";
+		}
+
+		ra.addFlashAttribute("loginEfetuado", true);
+		return redirect;
+	}
 	 
 	@GetMapping("/listarParticipante")
 	public String exibirLista(Model model) {
@@ -64,7 +92,6 @@ public class ParticipanteController {
 		ra.addFlashAttribute("contaCriada", true);
 		return "redirect:/index";
 	}
-	
 	
 	
 	/*@GetMapping("/removerParticipante")

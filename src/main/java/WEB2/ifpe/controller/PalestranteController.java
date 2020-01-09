@@ -1,11 +1,24 @@
 package WEB2.ifpe.controller;
 
 
+import java.io.UnsupportedEncodingException;
+import java.security.NoSuchAlgorithmException;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
+
+import org.hibernate.service.spi.ServiceException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import WEB2.ifpe.model.Palestrante;
 import WEB2.ifpe.service.PalestranteService;
@@ -33,10 +46,31 @@ public class PalestranteController {
 		return "redirect:/exibirFormPalestrante";
 	}
 	
+	@PostMapping("/login")
+	public String palestranteLogin(HttpServletRequest request, @ModelAttribute Palestrante palestrante, @RequestParam(name = "retorno", required = false) String retorno, RedirectAttributes ra, HttpSession session) throws NoSuchAlgorithmException, UnsupportedEncodingException {
+		
+		String redirect = "redirect:/index";
+		if (retorno != null) {
+			redirect = "redirect:" + retorno;
+		}
+
+		Palestrante palestranteLogado;
+		try {
+			palestranteLogado = this.palestranteService.logarPalestrante(palestrante.getEmail(), palestrante.getSenha());
+			session.setAttribute("usuarioLogado", palestranteLogado);
+		} catch (ServiceException e) {
+			ra.addFlashAttribute("mensagemErro", e.getMessage());
+
+			return "redirect:/perfil";
+		}
+
+		ra.addFlashAttribute("loginEfetuado", true);
+		return redirect;
+	}
 	
-	/*@PostMapping("/salvarPalestrante")
-	public String salvarPalestrante(@Valid Palestrante palestrante, 
-			BindingResult br, RedirectAttributes ra, Model model) {
+	
+	@PostMapping("/salvarPalestrante")
+	public String salvarPalestrante(@Valid Palestrante palestrante, BindingResult br, RedirectAttributes ra, Model model) {
 		if (br.hasErrors()) {
 			return this.exibirForm(palestrante);
 		}
@@ -47,11 +81,19 @@ public class PalestranteController {
 				return this.exibirForm(palestrante);
 			}
 			return "redirect:/listarPalestrante";
-	}*/
+	}
 	
 	@GetMapping("/removerPalestrante")
 	public String removerPalestrante(Integer idPalestrante) {
 		this.palestranteService.remover(idPalestrante);
 		return "redirect:/listarPalestrante";
+	}
+	
+	@PostMapping("/logout")
+	public String logout(HttpSession sessao) {
+		
+		sessao.invalidate();
+		return "redirect:/index";
+	
 	}
 }
