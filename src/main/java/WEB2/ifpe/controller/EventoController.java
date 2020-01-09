@@ -42,7 +42,6 @@ public class EventoController {
 		return "cadastro/cadastrar-evento";
 	}
 	
-/*
 	@GetMapping("/editarEvento")
 	public String editarProduto(Integer idEvento, Model model) {
 		model.addAttribute("evento", this.eventoService.obterPorId(idEvento));
@@ -50,7 +49,7 @@ public class EventoController {
 		model.addAttribute("listaSala", this.salaService.listarTodos(Sort.by("numero")));
 		return "evento/evento-form";
 	}
-	
+	/*
 	@GetMapping("/removerEvento")
 	public String removerEvento(Integer idEvento) {
 		this.eventoService.remover(idEvento);
