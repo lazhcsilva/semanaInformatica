@@ -22,6 +22,8 @@ public class Palestrante {
 	
 	@NotBlank(message = "Senha deve ser preenchida")
 	private String senha;
+	
+	private String cpf;
 
 	public Integer getIdPalestrante() {
 		return idPalestrante;
@@ -53,6 +55,14 @@ public class Palestrante {
 
 	public void setSenha(String senha) {
 		this.senha = senha;
+	}
+
+	public String getCpf() {
+		return cpf;
+	}
+
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
 	}
 	
 	
