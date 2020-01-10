@@ -20,6 +20,13 @@ public class MenuController {
 		
 	}
 	
+	@GetMapping("/programacao")
+	public String programacao() {
+	
+		return "programacao";
+		
+	}
+	
 	@GetMapping("/login")
 	public String login() {
 	

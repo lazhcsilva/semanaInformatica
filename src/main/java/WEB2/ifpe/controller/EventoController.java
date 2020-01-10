@@ -39,7 +39,7 @@ public class EventoController {
 	public String exibirForm(Evento evento , Model model) {
 		model.addAttribute("listaPalestrante", this.palestranteService.listarTodos(Sort.by("nome")));
 		model.addAttribute("listaSala", this.salaService.listarTodos(Sort.by("numero")));
-		return "cadastro/cadastrar-evento";
+		return "cadastros/cadastrar-evento";
 	}
 	
 	@GetMapping("/editarEvento")

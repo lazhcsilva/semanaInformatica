@@ -1,106 +1,151 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:th="http://www.thymeleaf.org">
+xmlns:th="http://www.thymeleaf.org">
 <head>
-	<meta charset="UTF-8">
-	<!-- Favicons -->
-	 <link rel="stylesheet" href="assets/css/index.css">
-	<link href="assets/img/favicon.png" rel="icon">
-	<link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
-	<!-- Bootstrap CSS File -->
-	<link rel="stylesheet" href="assets/lib/bootstrap/css/bootstrap.min.css">
-	<!-- Libraries CSS Files -->
-	<link rel="stylesheet" href="assets/lib/font-awesome/css/font-awesome.min.css">
-	<link href="assets/lib/animate/animate.min.css" rel="stylesheet">
-	<link href="assets/lib/ionicons/css/ionicons.min.css" rel="stylesheet">
-	<link href="assets/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-	<link href="assets/lib/lightbox/css/lightbox.min.css" rel="stylesheet">
-	<!-- Main Stylesheet File -->
-	<link rel="stylesheet" href="assets/css/style.css">
-	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,500,600,700,700i|Montserrat:300,400,500,600,700" rel="stylesheet">
-	<!-- Main Stylesheet File -->
-	<link rel="stylesheet" href="assets/css/style.css">
-	<link rel="stylesheet" href="assets/css/login.css">
-	
-	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
-	
-<title>Cadastrar</title>
+  <meta charset="utf-8">
+  <title>SIIFEPE -Programação</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="" name="keywords">
+  <meta content="" name="description">
+  
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,500,600,700,700i|Montserrat:300,400,500,600,700" rel="stylesheet">
+
+  <!-- Bootstrap CSS File -->
+  <link rel="stylesheet" href="assets/lib/bootstrap/css/bootstrap.min.css">
+
+  <!-- Libraries CSS Files -->
+   <link rel="stylesheet" href="assets/css/index.css">
+  <link rel="stylesheet" href="assets/lib/font-awesome/css/font-awesome.min.css">
+  <link href="assets/lib/animate/animate.min.css" rel="stylesheet">
+  <link href="assets/lib/ionicons/css/ionicons.min.css" rel="stylesheet">
+  <link href="assets/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+  <link href="assets/lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+  
+  <link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+<link
+	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+	rel="stylesheet">
+<script src='https://kit.fontawesome.com/a076d05399.js'></script>
+
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+
+<link rel="stylesheet" href="assets/css/util.css">
+
+  <!-- Main Stylesheet File -->
+  <link rel="stylesheet" href="assets/css/style.css">
+
+
+  <!-- =======================================================
+    Theme Name: Rapid
+    Theme URL: https://bootstrapmade.com/rapid-multipurpose-bootstrap-business-template/
+    Author: BootstrapMade.com
+    License: https://bootstrapmade.com/license/
+  ======================================================= -->
 </head>
+
 <body>
-	<header id="header">
+  <header id="header">
 
     <div class="container">
 
       <div class="logo float-left">
-        <h1 class="text-light"><a href="#intro" class="scrollto"><span>IFPE</span></a></h1>
+        <h1 class="text-light"><a href="/index" class="scrollto"><span>IFPE</span></a></h1>
       </div>
 
       <nav class="main-nav float-right d-none d-lg-block">
-         <ul>
+        <ul>
           <li class="active"><a href="/index">Home</a></li>
            <li><a href="/programacao">Programação</a></li>
           <li><a href="/login">Login</a></li>
           <li><a href="/exibirFormParticipante">Cadastro</a></li>
         </ul>
+        
       </nav><!-- .main-nav -->
       
     </div>
-  </header>
+  </header><!-- #header -->
+
+  <!--==========================
+    Intro Section
+  ============================-->
   <section id="intro" class="clearfix">
     <div class="container d-flex h-100">
       <div class="row justify-content-center align-self-center">
-        <div id="texto" class="col-md-6 intro-info order-md-first order-last">
-          <h2>Semana de Informática<br>IFPE</h2>
+        <div class="col-md-6 intro-info order-md-first order-last">
+          <h2>Programação da Semana de Informática<br>IFPE</h2>
+          <h3>Campus Jaboatão dos Guararapes</h3>
+          <h4> De 27/01 á 30/01<br></h4>
+          
         </div>
-       
-         <div class="col-md-6 col-sm-12">
-            
-               <form th:action="@{/salvarParticipante}" th:object="${participante}" id="form" method="post">                                    
-                  <div th:if="${mensagemErro != null}" th:text="${mensagemErro}" style=color:red; class=""></div>
-                  
-                  <input type="hidden" th:value="*{idParticipante}"/>
-                  <div class="form-group">
-                     <label>Nome</label>
-                     <input type="text" class="form-control" name="nome" id="nome" placeholder="Maria" th:field="*{nome}" >
-                  </div>
-                  <div class="form-group">
-                     <label>Email</label>
-                     <input type="email" class="form-control" name="email" id="email" placeholder="exemplo@gmail.com" th:field="*{email}">                  
-                  </div>
-                  <div class="form-group">
-                     <label>CPF</label>
-                     <input type="text" class="form-control"  name="cpf" id="cpf" placeholder="xxx.xxx.xxx-xx" th:field="*{cpf}">
-                  </div>
-                  <div class="form-group">
-                     <label>Senha</label>
-                     <input type="password" class="form-control" name="senha" id="senha" placeholder="******" th:field="*{senha}" >
-                  </div>
-                  <div th:text="${mensagem}" class="alert-warning" th:if="${mensagem != null}"></div>
-			      <div th:if="${#fields.hasErrors('*')}">
-				<ul>
-					<li th:each="erro : ${#fields.errors('*')}" th:text="${erro}" class="alert-danger">
-				</ul>
-				</div>
-				
-                  <button type="submit" class="btn btn-black">Cadastrar</button>
-                  <!--<button type="submit" class="btn btn-secondary">Registro</button> -->
-               </form>
-            </div>
-         </div>
-      </div>
-        
-    
-
-   
-  </section><!-- #intro -->
  
-  
+        <div class="col-md-6 intro-img order-md-last order-first">
+         <div class="contatiner col-sm-13 col-md-15 col-md-offset-2">
+		<table class="table table-striped table-bordered table-sm"> <br> <br> <br> <br>
+			<thead class="table-success">
+
+				<tr>
+					<th>Palestra</th> 
+					<th>Palestrante</th>
+					<th>Dia</th>
+					<th>Sala</th>
+					<th>Hora</th>
+				</tr>
+			</thead>
+			<tr >
+				<td> Mysql</td>
+				<td> Sergio</td>
+				<td> 28/01</td>
+				<td> Lab 03</td>
+				<td> 13h às 17h</td>
+			</tr>
+			<tr >
+				<td> Redes</td>
+				<td> Bruno</td>
+				<td> 29/01</td>
+				<td> Lab 02</td>
+				<td> 13h às 17h</td>
+			</tr>
+			<tr >
+				<td> Java Web</td>
+				<td> Roberto</td>
+				<td> 27/01</td>
+				<td> Lab 02</td>
+				<td> 8h às 12h</td>
+			</tr>
+		</table>
+		<hr />
+				
+	</div>
+         <!--  <img src="assets/img/features-2.svg" alt="" class="img-fluid"> -->
+        </div>
+      </div>
+
+    </div>
+  </section><!-- #intro -->
+
+  <main id="main">
+
+  </main>
+
+ 
 
   <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+  <!-- Uncomment below i you want to use a preloader -->
+  <!-- <div id="preloader"></div> -->
 
   <!-- JavaScript Libraries -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
   <script src="assets/lib/jquery/jquery.min.js"></script>
   <script src="assets/lib/jquery/jquery-migrate.min.js"></script>
   <script src="assets/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -114,20 +159,19 @@
   <script src="assets/lib/lightbox/js/lightbox.min.js"></script>
   <!-- Contact Form JavaScript File -->
   <script src="assets/contactform/contactform.js"></script>
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
   <!-- Template Main Javascript File -->
   <script src="assets/js/main.js"></script>
-  
-  <!-- validações -->
-  <script type="text/javascript" src="./js/localization/messages_pt_BR.js"></script>
-  <script type="text/javascript" src="./js/validacao.js"></script>
-  
-    <!-- footer -->
+      <!-- footer -->
     <div class="footer">
         <div class="container">
             <div class="row ">
                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ">
-                    <div class="ft-logo"><img src="https://easetemplate.com/free-website-templates/cointrade/images/logo.png" alt=""></div>
+                 <h1 class="text-light"><a href="#intro" class="scrollto"><span>IFPE</span></a></h1>
+                    <div class="ft-logo"><!-- <img src="assets/img/iftech.png" alt=""> --></div>
                 </div>
             </div>
             <hr class="footer-line">
@@ -195,6 +239,6 @@
         </div>
     </div>
     <!-- /.footer -->
-  
+
 </body>
 </html>

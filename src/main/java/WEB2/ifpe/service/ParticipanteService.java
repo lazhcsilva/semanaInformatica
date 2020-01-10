@@ -4,11 +4,10 @@ import java.io.UnsupportedEncodingException;
 import java.security.NoSuchAlgorithmException;
 import java.util.List;
 
-import javax.mail.MessagingException;
-
 import org.hibernate.service.spi.ServiceException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
+import org.springframework.messaging.MessagingException;
 import org.springframework.stereotype.Service;
 
 import WEB2.ifpe.model.Participante;
