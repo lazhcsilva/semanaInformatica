@@ -76,21 +76,19 @@ public class ParticipanteController {
 	public String salvarParticipante(@Valid Participante participante, 
 			BindingResult br,Model model, RedirectAttributes ra,Errors errors) {
 		
-			
 		if (errors.hasErrors()) {
-			System.out.println("erro");
+			ra.addFlashAttribute("menssage", "erro");
 			return this.exibirForm(participante);
-
 		} else {
 			try {
 				this.participanteService.salvarParticipante(participante);
 
 			} catch (ServiceException | MessagingException e) {
-				ra.addFlashAttribute("mensaagem", "Não foi possível criar usuário: " + e.getMessage());
+				ra.addFlashAttribute("menssage", "Não foi possível criar usuário: " + e.getMessage());
                 ra.addFlashAttribute("participante", participante);
 				return "redirect:/exibirFormParticipante";
 			}
-			ra.addFlashAttribute("mensagem", "Conta criada com sucesso!");
+			ra.addFlashAttribute("menssage", "Conta criada com sucesso!");
 		}
 		return "redirect:/exibirFormParticipante";
 	}

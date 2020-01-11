@@ -14,9 +14,14 @@ body {
   color: #444;
   font-family: "Open Sans", sans-serif;
 }
+#erroEmail{
+	color:red;
+}
 
 .error {
+
     color: red;
+    display: inline-block;
   }
 a {
   color: #1bb1dc;
