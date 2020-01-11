@@ -64,7 +64,8 @@
                   </div>
                   <div class="form-group">
                      <label>Email</label>
-                     <input type="email" class="form-control" name="email" id="email" placeholder="exemplo@gmail.com" th:field="*{email}">                  
+                     <input type="email" class="form-control" name="email" id="email" placeholder="exemplo@gmail.com" th:field="*{email}">
+                     <label id="erroEmail" th:if="${menssage != null && menssage != 'Conta criada com sucesso!'}">Cadastre outro Email</label>                  
                   </div>
                   <div class="form-group">
                      <label>CPF</label>
@@ -207,7 +208,7 @@
   	
  
   	 
-     <script th:if="${messagem != null}" type="text/javascript">
+     <script th:if="${menssage != null && menssage == 'Conta criada com sucesso!'}" type="text/javascript">
 		
 	     Swal.fire({
 	    	  icon: 'success',
@@ -216,7 +217,7 @@
 	    	  timer: 2000
 	    	})
 	</script>
-	<script th:if="${messagem == 'Já existe um Agente com este email'}" type="text/javascript">
+	<script th:if="${menssage != null && menssage != 'Conta criada com sucesso!'}" type="text/javascript">
 			Swal.fire({
 			  icon: 'error',
 			  title: 'Oops...',
