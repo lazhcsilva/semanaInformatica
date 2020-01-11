@@ -5,15 +5,30 @@
 					nome: {
 						required:true, 
 						maxlength: 20,
-	                   	minlength: 3	
+	                   	minlength: 6
 					},
-					
-					messages:{
-						nome:{
-							required:"Este campo é obrigatório!",
-							rangelength:"Este campo deve ter entre 3 e 20 caracteres!"				
+					email:{
+						required:true, 
+						email:true
+					},
+					cpf:{
+						required:true,
+	                   	minlength: 14	
+						
+					},
+					senha:{
+						required:true,
+	                   	minlength: 6	
+						
 					}
+					
+					
 				}
-			});
-		});
+			})
+			})
 		
+//-----------------------------------------//
+jQuery(function($){
+       $("#cpf").mask("000.000.000-00");       
+       
+});

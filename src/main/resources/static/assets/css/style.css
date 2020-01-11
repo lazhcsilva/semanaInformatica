@@ -16,7 +16,9 @@ body {
 }
 
 .error {
+
     color: red;
+    display: inline-block;
   }
 a {
   color: #1bb1dc;
