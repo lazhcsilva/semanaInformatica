@@ -3,6 +3,8 @@ package WEB2.ifpe.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import WEB2.ifpe.model.Participante;
+
 @Controller
 public class MenuController {
 
@@ -28,7 +30,7 @@ public class MenuController {
 	}
 	
 	@GetMapping("/login")
-	public String login() {
+	public String login(Participante participante) {
 	
 		return "login";
 	

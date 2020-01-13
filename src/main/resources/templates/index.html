@@ -53,6 +53,7 @@ xmlns:th="http://www.thymeleaf.org">
            <li><a href="/programacao">Programação</a></li>
           <li><a href="/login">Login</a></li>
           <li><a href="/exibirFormParticipante">Cadastro</a></li>
+          <li><span th:if="${session.usuarioLogado != null}" th:text="${session.usuarioLogado.email}" ></span></li>
         </ul>
         
       </nav><!-- .main-nav -->

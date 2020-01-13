@@ -51,15 +51,12 @@
        
          <div class="col-md-6 col-sm-12">
             
-               <form th:action="@{/login}" th:object="${participante}"  method="post">                  
+               <form th:action="@{/participanteLogin}" th:object="${participante}"  method="post">                  
                   <div class="form-group">
-<<<<<<< HEAD
-                     <label>Usuario</label>
-                     <input type="text" class="form-control" placeholder="Usuario" th:field="*{email}">
-=======
+
+         
                      <label>Email</label>
                      <input type="text" class="form-control" placeholder="Email" th:field="*{email}">
->>>>>>> branch 'master' of https://github.com/lazhcsilva/semanaInformatica
                   </div>
                   <div class="form-group">
                      <label>Senha</label>

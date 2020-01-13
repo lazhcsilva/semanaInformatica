@@ -48,11 +48,17 @@ public class ParticipanteController {
 		} catch (ServiceException e) {
 			ra.addFlashAttribute("mensagemErro", e.getMessage());
 
-			return "redirect:/perfil";
+			return "redirect:/login";
 		}
 
 		ra.addFlashAttribute("loginEfetuado", true);
 		return redirect;
+	}
+	
+	@GetMapping("/deslogar")
+	public String deslogar(HttpSession session) {
+		session.invalidate();
+		return "redirect:/index";
 	}
 	 
 	@GetMapping("/listarParticipante")
