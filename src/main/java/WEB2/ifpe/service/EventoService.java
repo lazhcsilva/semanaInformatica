@@ -33,9 +33,7 @@ public class EventoService {
 
 	public boolean salvarEvento(Evento evento) {
 		
-		
-		Evento eventoComNomeAtividadeExistente = this.eventoDAO
-				.findByNomeAtividade(evento.getNomeAtividade());
+		Evento eventoComNomeAtividadeExistente = this.eventoDAO.findByNomeAtividade(evento.getNomeAtividade());
 		
 		if (eventoComNomeAtividadeExistente == null) {
 			this.eventoDAO.save(evento);	
@@ -43,4 +41,9 @@ public class EventoService {
 		}
 		return false;	
 	} 
+	
+	public void verificarHosrarioEvento(Evento evento) {
+		
+	}
+	
 }
