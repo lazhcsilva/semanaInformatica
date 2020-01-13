@@ -52,25 +52,30 @@
 
 <form th:action="@{/salvarEvento}" th:object="${evento}"  method="post">
 <input type="hidden" th:value="*{idEvento}"/>
+
   <div class="form-group">
     <label for="exampleFormControlInput1">Nome da Atividade</label>
-    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="" th:field="${nomeAtividade}">
+    <input type="text" class="form-control" id="" placeholder="" th:field="*{nomeAtividade}">
+  </div>
+  
+ <div class="form-group">
+    <label for="exampleFormControlInput1">Sala</label>
+    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="" th:field="*{sala}">
   </div>
  
   <div class="form-group">
     <label for="exampleFormControlSelect1">Selecione o Palestrante</label>
     <select class="form-control" id="exampleFormControlSelect1">
       <option>Selecione o Palestrante pelo nome</option>
-      <option th:each="pale : ${lista}" th:text="${palestrante.nome}" th:value="${palestrante.id}" />
+      <option th:each="pale : ${lista}" th:text="*{palestrante.nome}" th:value="${palestrante.id}" />
      </select>
   </div>
+  
    <div class="form-group">
     <label for="exampleFormControlSelect1">Data/hora</label>
-    <select class="form-control" id="exampleFormControlSelect1">
-      <!--<option>Selecione a data/hora da palestra</option>
-      <option th:each="datahora : ${listahora}" th:text="${datahora.datahora}" th:value="${sala.id}" />-->
-     </select>
+    <input type="date" th:field="dataHora">
   </div>
+  
   <div class="form-group">
     <label for="exampleFormControlSelect1">Salas/Vagas disponiveis</label>
     <select class="form-control" id="exampleFormControlSelect1">
@@ -78,6 +83,12 @@
       <option th:each="capacidade : ${listacapacidade}" th:text="${capacidade.capacidade}" th:value="${sala.id}" />
      </select>
   </div>
+  
+  <div class="form-group">
+    <label for="exampleTextarea">Descricao</label>
+    <textarea class="form-control" id="exampleTextarea" rows="3" th:field="descricao"></textarea>
+  </div>
+  
   <button type="submit">Enviar</button>
 </form>
 
