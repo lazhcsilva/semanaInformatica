@@ -16,7 +16,6 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -34,7 +33,7 @@ public class ParticipanteController {
 	private ParticipanteService participanteService;
 	
 	@PostMapping("/participanteLogin")
-	public String participanteLogin(HttpServletRequest request, @ModelAttribute Palestrante palestrante, @RequestParam(name = "retorno", required = false) String retorno, RedirectAttributes ra, HttpSession session) throws NoSuchAlgorithmException, UnsupportedEncodingException {
+	public String participanteLogin(HttpServletRequest request, Participante particpanteAtributos, @RequestParam(name = "retorno", required = false) String retorno, RedirectAttributes ra, HttpSession session) throws NoSuchAlgorithmException, UnsupportedEncodingException {
 		
 		String redirect = "redirect:/index";
 		if (retorno != null) {
@@ -43,7 +42,7 @@ public class ParticipanteController {
 
 		Participante participanteLogado;
 		try {
-			participanteLogado = this.participanteService.logarParticipante(palestrante.getEmail(), palestrante.getSenha());
+			participanteLogado = this.participanteService.logarParticipante(particpanteAtributos.getEmail(), particpanteAtributos.getSenha());
 			session.setAttribute("usuarioLogado", participanteLogado);
 		} catch (ServiceException e) {
 			ra.addFlashAttribute("mensagemErro", e.getMessage());
