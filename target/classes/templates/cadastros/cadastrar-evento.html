@@ -50,11 +50,11 @@
 </header>
 <br><br><br><br><br>
 
-<form th:action="@{/salvarEvento}" th:object="${participante}"  method="post">
+<form th:action="@{/salvarEvento}" th:object="${evento}"  method="post">
 <input type="hidden" th:value="*{idEvento}"/>
   <div class="form-group">
     <label for="exampleFormControlInput1">Nome da Atividade</label>
-    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="" th:field="${descricao}">
+    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="" th:field="${nomeAtividade}">
   </div>
  
   <div class="form-group">
@@ -67,8 +67,8 @@
    <div class="form-group">
     <label for="exampleFormControlSelect1">Data/hora</label>
     <select class="form-control" id="exampleFormControlSelect1">
-      <option>Selecione a data/hora da palestra</option>
-      <option th:each="datahora : ${listahora}" th:text="${datahora.datahora}" th:value="${sala.id}" />
+      <!--<option>Selecione a data/hora da palestra</option>
+      <option th:each="datahora : ${listahora}" th:text="${datahora.datahora}" th:value="${sala.id}" />-->
      </select>
   </div>
   <div class="form-group">
