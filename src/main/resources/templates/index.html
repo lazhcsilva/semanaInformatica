@@ -54,7 +54,7 @@ xmlns:th="http://www.thymeleaf.org">
       <nav class="main-nav float-right d-none d-lg-block">
         <ul>
           <li class="active"><a href="#intro">Home</a></li>
-           <li><a class="ml-3" th:if="${session.usuarioLogado != null}" href="/programacao">Programação</a></li>
+           <li><a class="ml-3"  href="/programacao">Programação</a></li>
           <li><a th:if="${session.usuarioLogado == null}" href="/login">Login</a></li>
           <li><a th:if="${session.usuarioLogado == null}" href="/exibirFormParticipante">Cadastro</a></li>
           <li><a th:if="${session.usuarioLogado != null}"  th:href="@{/deslogar}">
