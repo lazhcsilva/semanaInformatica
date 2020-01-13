@@ -57,10 +57,19 @@ xmlns:th="http://www.thymeleaf.org">
            <li><a class="ml-3"  href="/programacao">Programação</a></li>
           <li><a th:if="${session.usuarioLogado == null}" href="/login">Login</a></li>
           <li><a th:if="${session.usuarioLogado == null}" href="/exibirFormParticipante">Cadastro</a></li>
-          <li><a th:if="${session.usuarioLogado != null}"  th:href="@{/deslogar}">
-       		<span class="glyphicon glyphicon-log-out ml-0" ></span>
-          	<span th:text="${session.usuarioLogado.nome}"></span>
-          </a></li>
+          <li>
+		    <div class="dropdown" th:if="${session.usuarioLogado != null}">
+			  	<a href="#" data-toggle="dropdown">
+			  	<span  class="glyphicon glyphicon-user"></span>
+			   		<span  th:text="${session.usuarioLogado.nome}"></span>
+			 	 </a>
+			 	 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+			    <a class="dropdown-item" href="#">Configurações</a>
+			    
+			    <a class="dropdown-item" href="/deslogar">Sair</a>
+		  		</div>
+			</div>
+          </li>
         </ul>
         
       </nav><!-- .main-nav -->
