@@ -3,6 +3,7 @@ package WEB2.ifpe.controller;
 import java.io.UnsupportedEncodingException;
 import java.security.NoSuchAlgorithmException;
 
+import javax.mail.MessagingException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
@@ -10,7 +11,6 @@ import javax.validation.Valid;
 import org.hibernate.service.spi.ServiceException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
-import org.springframework.messaging.MessagingException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -75,22 +75,22 @@ public class ParticipanteController {
 	@PostMapping("/salvarParticipante")
 	public String salvarParticipante(@Valid Participante participante, 
 			BindingResult br,Model model, RedirectAttributes ra,Errors errors) {
+		
 		if (errors.hasErrors()) {
-
+			ra.addFlashAttribute("menssage", "erro");
 			return this.exibirForm(participante);
 		} else {
 			try {
 				this.participanteService.salvarParticipante(participante);
-				ra.addFlashAttribute("mensagem", "Conta criada com sucesso!");
+
 			} catch (ServiceException | MessagingException e) {
-				ra.addFlashAttribute("mensagemErro", "Não foi possível criar usuário: " + e.getMessage());
+				ra.addFlashAttribute("menssage", "Não foi possível criar usuário: " + e.getMessage());
                 ra.addFlashAttribute("participante", participante);
-                 
 				return "redirect:/exibirFormParticipante";
 			}
+			    ra.addFlashAttribute("menssage", "Conta criada com sucesso!");
 		}
-		ra.addFlashAttribute("contaCriada", true);
-		return "redirect:/index";
+		return "redirect:/exibirFormParticipante";
 	}
 	
 	

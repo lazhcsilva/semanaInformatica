@@ -42,13 +42,14 @@ public class MenuController {
 		return "listas/listar-palestrante";
 		
 	}
-
+	
+	 
 	@GetMapping("/cadastrarPalestrante")
 	public String cadastrarpalestrante() {
 		
 		return "cadastros/cadastrar-palestrante";
 	
-	}
+	} 
 	
 	@GetMapping("/cadastrarParticipante")
 	public String cadastrarparticipante() {
