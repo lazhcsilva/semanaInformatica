@@ -48,45 +48,42 @@
       
 	</div>
 </header>
-<br><br><br><br><br>
+<br><br><br><br><br><br>
 
 <form th:action="@{/salvarEvento}" th:object="${evento}"  method="post">
 <input type="hidden" th:value="*{idEvento}"/>
 
   <div class="form-group">
-    <label for="exampleFormControlInput1">Nome da Atividade</label>
-    <input type="text" class="form-control" id="" placeholder="" th:field="*{nomeAtividade}">
+    <label for="exampleFormControlInput1" class="col-lg-4">Nome da Atividade</label>
+    <input type="text" class="ml-3 form-control col-lg-4" id="" placeholder="" th:field="*{nomeAtividade}">
   </div>
   
  <div class="form-group">
-    <label for="exampleFormControlInput1">Sala</label>
-    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="" th:field="*{sala}">
+    <label for="exampleFormControlInput1" class="col-lg-4">Sala</label>
+    <input type="text" class="ml-3 form-control col-lg-4" id="exampleFormControlInput1" placeholder="" th:field="*{sala}">
   </div>
  
-  <div class="form-group">
-    <label for="exampleFormControlSelect1">Selecione o Palestrante</label>
-    <select class="form-control" id="exampleFormControlSelect1">
+  <div class="ml-1 form-group col-lg-8">
+    <label for="exampleFormControlSelect1" class="col-lg-">Selecione o Palestrante</label>
+    <select class="form-control col-lg-6" id="exampleFormControlSelect1">
       <option>Selecione o Palestrante pelo nome</option>
       <option th:each="pale : ${lista}" th:text="*{palestrante.nome}" th:value="${palestrante.id}" />
      </select>
-  </div>
+  </div><br>
   
-   <div class="form-group">
+   <div class="ml-3 form-group" >
     <label for="exampleFormControlSelect1">Data/hora</label>
-    <input type="date" th:field="dataHora">
-  </div>
+    <input type="date" th:field="*{data}">
+  </div><br>
   
-  <div class="form-group">
+  <div class="ml-3 form-group">
     <label for="exampleFormControlSelect1">Salas/Vagas disponiveis</label>
-    <select class="form-control" id="exampleFormControlSelect1">
-      <option>Selecione a Salas/Vagas disponiveis</option>
-      <option th:each="capacidade : ${listacapacidade}" th:text="${capacidade.capacidade}" th:value="${sala.id}" />
-     </select>
+    <select class="form-control col-lg-6" id="exampleFormControlSelect1"></select>
   </div>
   
-  <div class="form-group">
+  <div class="ml-3 form-group">
     <label for="exampleTextarea">Descricao</label>
-    <textarea class="form-control" id="exampleTextarea" rows="3" th:field="descricao"></textarea>
+    <textarea class="form-control col-lg-6" id="exampleTextarea" rows="3" th:field="*{descricao}"></textarea>
   </div>
   
   <button type="submit">Enviar</button>

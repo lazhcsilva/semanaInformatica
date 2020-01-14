@@ -2,6 +2,7 @@ package WEB2.ifpe.service;
 
 import java.util.List;
 
+import org.hibernate.service.spi.ServiceException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
@@ -31,19 +32,28 @@ public class EventoService {
 
 	
 
-	public boolean salvarEvento(Evento evento) {
+	public Evento salvarEvento(Evento evento){
 		
-		Evento eventoComNomeAtividadeExistente = this.eventoDAO.findByNomeAtividade(evento.getNomeAtividade());
-		
-		if (eventoComNomeAtividadeExistente == null) {
-			this.eventoDAO.save(evento);	
-			return true;
-		}
-		return false;	
+		this.checarRegras(evento);
+		evento = eventoDAO.save(evento);
+		return evento;
 	} 
 	
-	public void verificarHosrarioEvento(Evento evento) {
+	public void checarRegras(Evento evento) throws ServiceException {
 		
+		/**verificar se o nome da atividade já existe**/
+		Evento eventoBusca = eventoDAO.findByNomeAtividade(evento.getNomeAtividade()); 
+		
+		if(eventoBusca != null) {
+			throw new ServiceException("Já existe um evento com esse nome");
+		}
+		
+//		/**verifica se existe uma sala usada no horário**/
+//		if(eventoBusca.getSala().getNumero().equals(evento.getSala().getNumero())
+//				&& eventoBusca.get) {
+//			
+//		}
+			
 	}
 	
 }
