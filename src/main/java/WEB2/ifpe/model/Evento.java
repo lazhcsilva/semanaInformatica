@@ -1,5 +1,7 @@
 package WEB2.ifpe.model;
 
+import java.time.LocalDate;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -21,7 +23,7 @@ public class Evento {
 	@NotBlank(message = "Nome da Atividade deve ser preenchido")
 	private String nomeAtividade;
 	
-    //private Date data;
+    private LocalDate data;
 	
 	@ManyToOne
 	@NotNull(message = "Palestrante deve ser selecionado")
@@ -84,6 +86,14 @@ public class Evento {
 
 	public void setSala(Sala sala) {
 		this.sala = sala;
+	}
+
+	public LocalDate getData() {
+		return data;
+	}
+
+	public void setData(LocalDate data) {
+		this.data = data;
 	}
 	
 }

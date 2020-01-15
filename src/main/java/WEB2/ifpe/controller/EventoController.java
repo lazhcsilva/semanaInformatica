@@ -58,17 +58,15 @@ public class EventoController {
 	}*/
 	
 	@PostMapping("/salvarEvento")
-	public String salvarEvento(@Valid Evento evento,
-			BindingResult br, RedirectAttributes ra, Model model) {
-		if (br.hasErrors()) {
-			return this.exibirForm(evento, model);
-		}
-		boolean retorno = 
-				this.eventoService.salvarEvento(evento);
-			if (retorno == false) {
-				model.addAttribute("mensagem", "Já existe um cadastro com nome deste evento");
-				return this.exibirForm(evento, model);
-			}
+	public String salvarEvento(@Valid Evento evento, BindingResult br, RedirectAttributes ra, Model model) {
+//		if (!br.hasErrors()) {
+//			return this.exibirForm(evento, model);
+//		}
+
+
+//				model.addAttribute("mensagem", "Já existe um cadastro com nome deste evento");
+//				return this.exibirForm(evento, model);
+			eventoService.salvarEvento(evento);
 			return "redirect:/listarEvento";
 	}
 }

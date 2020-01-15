@@ -33,7 +33,7 @@
 
 	<div class="container">
 		<div class="logo float-left">
-        	<h1 class="text-light"><a href="/paginaInicial" class="scrollto"><span>IFPE</span></a></h1>
+        	<h1 class="text-light"><a href="/index" class="scrollto"><span>IFPE</span></a></h1>
       	</div>
 		<nav class="main-nav float-right d-none d-lg-block">
 			<ul>
@@ -52,7 +52,6 @@
       
 	</div>
 </header>
-<br><br><br><br><br>
   <section id="intro" class="clearfix">
     <div class="container d-flex h-100">
       <div class="row justify-content-center align-self-center">
@@ -61,35 +60,38 @@
         </div>
        
          <div class="col-md-6 col-sm-12">
-   <form  id="form" method="post">                                    
-                             
-                  <input type="hidden"/>
-                  <div class="form-group">
-                     <label>Nome</label>
-                     <input type="text" class="form-control" name="nome" id="nome" placeholder="Maria" >
-                  </div>
-                  <div class="form-group">
-                     <label>Email</label>
-                     <input type="email" class="form-control" name="email" id="email" placeholder="exemplo@gmail.com">                  
-                  </div>
-                  <div class="form-group">
-                     <label>CPF</label>
-                     <input type="text" class="form-control"  name="cpf" id="cpf" placeholder="xxx.xxx.xxx-xx">
-                  </div>
-                  <div class="form-group">
-                     <label>Senha</label>
-                     <input type="password" class="form-control" name="senha" id="senha" placeholder="******" >
-                  </div>
-				</div>
-				
-                  <button type="submit" class="btn btn-black">Cadastrar</button>
-                  <!--<button type="submit" class="btn btn-secondary">Registro</button> -->
-               </form>
+   			 <form action="/salvarPalestrante"
+						method="post" id="form">
+						<div></div>
+
+						<input type="hidden"  />
+						<div class="form-group">
+							<label>Nome do palastrante</label> <input type="text"
+								class="form-control" name="nome" id="nome" placeholder="Maria">
+						</div>
+						<div class="form-group">
+							<label>Email</label> <input type="email" class="form-control"
+								name="email" id="email" placeholder="exemplo@gmail.com">
+						</div>
+						<div class="form-group">
+							<label>CPF</label> <input type="text" class="form-control"
+								name="cpf" id="cpf" placeholder="xxx.xxx.xxx-xx">
+						</div>
+						<div class="form-group">
+							<label>Senha</label> <input type="password" class="form-control"
+								name="senha" id="senha" placeholder="******" >
+						</div>				
+						
+
+						<button type="submit" class="btn btn-black">Cadastrar</button>
+						
+					</form>
+               </div>
             </div>
-         </div>
+        
         
     
-
+	</div>
    
   </section>
  
