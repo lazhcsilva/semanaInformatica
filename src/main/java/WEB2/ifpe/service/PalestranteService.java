@@ -27,11 +27,15 @@ public class PalestranteService {
 		return this.palestranteDAO.getOne(idPalestrante);
 	}
 	
+	
 	public boolean salvarPalestrante(Palestrante palestrante) {
 		
 		// Verificar a existencia de um Palestrante com o email
 		
 		Palestrante palestranteComEmailExistente = this.palestranteDAO.findByEmail(palestrante.getEmail());
+		
+		
+		
 		
 		if (palestranteComEmailExistente == null) {
 			this.palestranteDAO.save(palestrante);	
