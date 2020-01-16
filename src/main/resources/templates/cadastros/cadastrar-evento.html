@@ -67,7 +67,7 @@
     <label for="exampleFormControlSelect1" class="col-lg-">Selecione o Palestrante</label>
     <select class="form-control col-lg-6" id="exampleFormControlSelect1">
       <option>Selecione o Palestrante pelo nome</option>
-      <option th:each="pale : ${lista}" th:text="*{palestrante.nome}" th:value="${palestrante.id}" />
+      <option th:each="palestrante : ${listaPalestrante}" th:text="${palestrante.nome}" th:value="${palestrante.idPalestrante}" />
      </select>
   </div><br>
   

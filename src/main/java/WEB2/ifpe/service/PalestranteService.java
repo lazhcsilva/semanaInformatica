@@ -20,7 +20,8 @@ public class PalestranteService {
 	private PalestranteDAO palestranteDAO;
 	
 	public List<Palestrante>listarTodos(Sort ordenacao) {
-		return this.palestranteDAO.findAll(ordenacao);
+		List<Palestrante> palestra = palestranteDAO.findAll(ordenacao);
+		return palestra;
 	}
 	
 	public Palestrante obterPorId(Integer idPalestrante) {

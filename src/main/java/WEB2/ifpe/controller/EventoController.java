@@ -37,8 +37,8 @@ public class EventoController {
 	
 	@GetMapping("/exibirFormEvento")
 	public String exibirForm(Evento evento , Model model) {
-		model.addAttribute("listaPalestrante", this.palestranteService.listarTodos(Sort.by("nome")));
-		model.addAttribute("listaSala", this.salaService.listarTodos(Sort.by("numero")));
+		model.addAttribute("listaPalestrante", palestranteService.listarTodos(Sort.by("nome")));
+		model.addAttribute("listaSala", salaService.listarTodos(Sort.by("numero")));
 		return "cadastros/cadastrar-evento";
 	}
 	

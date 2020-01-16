@@ -12,8 +12,6 @@ public class Palestrante {
 	@Id @GeneratedValue
 	private Integer idPalestrante;
 	
-	@NotBlank(message = "Nome deve ser preenchido")
-	@Column(length = 50)
 	private String nome;
 	
 	@NotBlank(message = "Email deve ser preenchido")
