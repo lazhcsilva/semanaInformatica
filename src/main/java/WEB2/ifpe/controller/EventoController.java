@@ -29,12 +29,12 @@ public class EventoController {
 	@Autowired
 	private SalaService salaService;
 	
-	/*@GetMapping("/listarEvento")
+	@GetMapping("/listarEvento")
 	public String exibirLista(Model model) {
 		model.addAttribute("lista", this.eventoService.listarTodos(Sort.by("nomeAtividade")));
 		return "listas/listar-evento";
 	}
-	*/
+	
 	@GetMapping("/exibirFormEvento")
 	public String exibirForm(Evento evento , Model model) {
 		model.addAttribute("listaPalestrante", this.palestranteService.listarTodos(Sort.by("nome")));
