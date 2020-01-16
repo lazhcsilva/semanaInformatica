@@ -1,6 +1,7 @@
 package WEB2.ifpe.model;
 
 import java.time.LocalDate;
+import java.time.LocalTime;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -31,6 +32,8 @@ public class Evento {
 	private String descricao;
 	
 	private int vagasDisponiveis;
+	
+	private LocalTime hora; 
 	
 	@ManyToOne
 	private Sala sala;
@@ -89,6 +92,14 @@ public class Evento {
 
 	public void setData(LocalDate data) {
 		this.data = data;
+	}
+
+	public LocalTime getHora() {
+		return hora;
+	}
+
+	public void setHora(LocalTime hora) {
+		this.hora = hora;
 	}
 	
 }
