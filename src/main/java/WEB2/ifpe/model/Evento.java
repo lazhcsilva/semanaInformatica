@@ -28,7 +28,9 @@ public class Evento {
 	
 	private int vagasDisponiveis;
 	
-	private LocalTime hora; 
+	private LocalTime horaInicio;
+	
+	private LocalTime horaFim;
 	
 	@ManyToOne
 	private Sala sala;
@@ -89,12 +91,20 @@ public class Evento {
 		this.data = data;
 	}
 
-	public LocalTime getHora() {
-		return hora;
+	public LocalTime getHoraInicio() {
+		return horaInicio;
 	}
 
-	public void setHora(LocalTime hora) {
-		this.hora = hora;
+	public void setHoraInicio(LocalTime horaInicio) {
+		this.horaInicio = horaInicio;
+	}
+
+	public LocalTime getHoraFim() {
+		return horaFim;
+	}
+
+	public void setHoraFim(LocalTime horaFim) {
+		this.horaFim = horaFim;
 	}
 	
 }
