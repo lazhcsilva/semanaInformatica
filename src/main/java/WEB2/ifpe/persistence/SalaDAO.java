@@ -6,5 +6,9 @@ import WEB2.ifpe.model.Sala;
 
 public interface SalaDAO extends JpaRepository<Sala, Integer> {
 
-	//Sala findByNumero(String numero);
+	
+
+	Sala findByNumero(String numero);
+
+	
 }

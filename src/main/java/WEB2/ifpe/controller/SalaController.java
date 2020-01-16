@@ -1,10 +1,15 @@
 package WEB2.ifpe.controller;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import WEB2.ifpe.model.Sala;
 import WEB2.ifpe.service.SalaService;
@@ -39,7 +44,7 @@ public class SalaController {
 		return "redirect:/listarSala";
 	}
 	
-	/*@PostMapping("/salvarSala")
+	@PostMapping("/salvarSala")
 	public String salvarSala(@Valid Sala sala, 
 			BindingResult br, RedirectAttributes ra, Model model) {
 		if (br.hasErrors()) {
@@ -52,5 +57,5 @@ public class SalaController {
 				return this.exibirForm(sala);
 			}
 			return "redirect:/listarSala";
-	}*/
+	}
 }

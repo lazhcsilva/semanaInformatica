@@ -29,6 +29,7 @@ public class EventoController {
 	@Autowired
 	private SalaService salaService;
 	
+	
 	@GetMapping("/listarEvento")
 	public String exibirLista(Model model) {
 		model.addAttribute("lista", this.eventoService.listarTodos(Sort.by("nomeAtividade")));

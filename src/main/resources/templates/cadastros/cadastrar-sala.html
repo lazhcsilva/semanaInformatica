@@ -60,28 +60,23 @@
         </div>
        
          <div class="col-md-6 col-sm-12">
-   			 <form action="/salvarPalestrante"
+   			 <form action="/salvarSala" th:object="${sala}"
 						method="post" id="form">
 						<div></div>
 
-						<input type="hidden"  />
-						<div class="form-group">
-							<label>Nome do palastrante</label> <input type="text"
-								class="form-control" name="nome" id="nome" placeholder="Maria">
-						</div>
-						<div class="form-group">
-							<label>Email</label> <input type="email" class="form-control"
-								name="email" id="email" placeholder="exemplo@gmail.com">
-						</div>
-						<div class="form-group">
-							<label>CPF</label> <input type="text" class="form-control"
-								name="cpf" id="cpf" placeholder="xxx.xxx.xxx-xx">
-						</div>
-						<div class="form-group">
-							<label>Senha</label> <input type="password" class="form-control"
-								name="senha" id="senha" placeholder="******" >
-						</div>				
+						<input type="hidden" th:value="*{idSala}" />
 						
+						<div class="form-group">
+							<label>Numero da sala</label> <input type="number"
+								class="form-control" name="numero" id="numero" placeholder="000" th:field="*{numero}">
+						</div>
+						<div class="form-group">
+							<label>Capacidade</label> <input type="number" class="form-control"
+								name="capacidade" id="capacidade" placeholder="000" th:field="*{capacidade}">
+						</div>
+							
+							<div th:if="${mensagemErro != null}" th:text="${mensagemErro}"
+							style="color: red;" class=""></div>
 
 						<button type="submit" class="btn btn-black">Cadastrar</button>
 						
