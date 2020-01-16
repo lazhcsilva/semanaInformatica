@@ -17,27 +17,22 @@ import javax.validation.constraints.Size;
 public class Evento {
 
 	
-	@Id @GeneratedValue(strategy =GenerationType.AUTO)
+	@Id
+	@GeneratedValue(strategy =GenerationType.AUTO)
 	private Integer idEvento;
 	
-	@NotBlank(message = "Nome da Atividade deve ser preenchido")
 	private String nomeAtividade;
 	
     private LocalDate data;
 	
 	@ManyToOne
-	@NotNull(message = "Palestrante deve ser selecionado")
 	private Palestrante palestrante;
 	
-	@Size(min = 0, max = 150, message = "A descricao tem o limite de 150 letras")
 	private String descricao;
 	
-	@Min(value = 0, message = "vagas disponiveis deve ser informada")
-	@Max(value = 9999, message = "vagas disponiveis deve ter no maximo até 9999 ")
 	private int vagasDisponiveis;
 	
 	@ManyToOne
-	@NotNull(message = "A sala deve ser selecionada")
 	private Sala sala;
 
 	public Integer getIdEvento() {
