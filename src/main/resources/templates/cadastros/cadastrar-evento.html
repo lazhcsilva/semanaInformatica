@@ -22,6 +22,10 @@
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,500,600,700,700i|Montserrat:300,400,500,600,700" rel="stylesheet">
 	<!-- Main Stylesheet File -->
 	<link rel="stylesheet" href="assets/css/style.css">
+	<link rel="stylesheet" href="assets/css/login.css">
+	
+		<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
 </head>
 <body>
 
@@ -48,30 +52,39 @@
       
 	</div>
 </header>
-<br><br><br><br><br><br>
+  <section id="intro" class="clearfix">
+    <div class="container d-flex h-100">
+      <div class="row justify-content-center align-self-center">
+        <div id="texto" class="col-md-6 intro-info order-md-first order-last">
+          <h2> Cadastro <br>Evento<br>IFPE</h2>
+        </div>
+               
+       <br><br><br><br><br>
+       
+         <div class="col-md-6 col-sm-12">
 
-<form th:action="@{/salvarEvento}" th:object="${evento}"  method="post">
+<form th:action="@{/salvarEvento}" th:object="${evento}"  method="post" id="form">
 <input type="hidden" th:value="*{idEvento}"/>
 
   <div class="form-group">
-    <label for="exampleFormControlInput1" class="col-lg-4">Nome da Atividade</label>
-    <input type="text" class="ml-3 form-control col-lg-4" id="" placeholder="" th:field="*{nomeAtividade}">
+    <label for="exampleFormControlInput1">Nome da Atividade</label>
+    <input type="text" class="form-control" id="" placeholder="Nome da Atividade" th:field="*{nomeAtividade}">
   </div>
   
  <div class="form-group">
-    <label for="exampleFormControlInput1" class="col-lg-4">Sala</label>
-    <input type="text" class="ml-3 form-control col-lg-4" id="exampleFormControlInput1" placeholder="" th:field="*{sala}">
+    <label for="exampleFormControlInput1" >Sala</label>
+    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Sala" th:field="*{sala}">
   </div>
  
-  <div class="ml-1 form-group col-lg-8">
-    <label for="exampleFormControlSelect1" class="col-lg-">Selecione o Palestrante</label>
+  <div class="form-group">
+    <label for="exampleFormControlSelect1">Selecione o Palestrante</label>
     <select class="form-control col-lg-6" id="exampleFormControlSelect1">
       <option>Selecione o Palestrante pelo nome</option>
       <option th:each="palestrante : ${listaPalestrante}" th:text="${palestrante.nome}" th:value="${palestrante.idPalestrante}" />
      </select>
   </div><br>
   
-   <div class="ml-3 form-group" >
+   <div class="form-group" >
     <label for="exampleFormControlSelect1">Data</label>
     <input type="date" th:field="*{data}">
     <label for="exampleFormControlSelect1">Início</label>
@@ -80,18 +93,29 @@
     <input type="time" th:field="*{horaFim}">
   </div><br>
   
-  <div class="ml-3 form-group">
+  <div class="form-group">
     <label for="exampleFormControlSelect1">Salas/Vagas disponiveis</label>
-    <select class="form-control col-lg-6" id="exampleFormControlSelect1"></select>
+    <select class="form-control" id="exampleFormControlSelect1"></select>
   </div>
   
-  <div class="ml-3 form-group">
+  <div class="form-group">
     <label for="exampleTextarea">Descricao</label>
-    <textarea class="form-control col-lg-6" id="exampleTextarea" rows="3" th:field="*{descricao}"></textarea>
+    <textarea class="form-control" id="exampleTextarea" rows="3" th:field="*{descricao}"></textarea>
   </div>
   
-  <button class="ml-3 form-group" type="submit">Enviar</button>
+  <button class="form-group" type="submit">Enviar</button>
 </form>
+
+            </div>
+         </div>
+      </div>
+        
+    
+
+   
+  </section><!-- #intro -->
+
+
 
 <footer id="footer" class="section-bg">
     
