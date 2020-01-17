@@ -17,6 +17,16 @@ xmlns:th="http://www.thymeleaf.org">
 
   <!-- Bootstrap CSS File -->
   <link rel="stylesheet" href="assets/lib/bootstrap/css/bootstrap.min.css">
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,500,600,700,700i|Montserrat:300,400,500,600,700" rel="stylesheet">
+  
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <!-- Bootstrap CSS File -->
+  <link rel="stylesheet" href="assets/lib/bootstrap/css/bootstrap.min.css">
 
   <!-- Libraries CSS Files -->
    <link rel="stylesheet" href="assets/css/index.css">
@@ -25,20 +35,6 @@ xmlns:th="http://www.thymeleaf.org">
   <link href="assets/lib/ionicons/css/ionicons.min.css" rel="stylesheet">
   <link href="assets/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
   <link href="assets/lib/lightbox/css/lightbox.min.css" rel="stylesheet">
-  
-  <link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-<link
-	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
-	rel="stylesheet">
-<script src='https://kit.fontawesome.com/a076d05399.js'></script>
-
-
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-<script
-	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 
 
 <link rel="stylesheet" href="assets/css/util.css">
@@ -56,30 +52,43 @@ xmlns:th="http://www.thymeleaf.org">
 </head>
 
 <body>
-  <header id="header">
+ <header id="header">
 
     <div class="container">
 
       <div class="logo float-left">
-        <h1 class="text-light"><a href="/index" class="scrollto"><span>IFPE</span></a></h1>
+        <h1 class="text-light"><a href="#intro" class="scrollto"><span>IFPE</span></a></h1>
       </div>
 
       <nav class="main-nav float-right d-none d-lg-block">
         <ul>
-          <li class="active"><a href="/index">Home</a></li>
-           <li><a href="/programacao">Programação</a></li>
-          <li><a href="/login">Login</a></li>
-          <li><a href="/exibirFormParticipante">Cadastro</a></li>
+          <li class="active"><a href="#intro"><img src="./assets/img/home.png"></img>Home</a></li>
+           <li><a class="ml-3"  href="/programacao"><img src="./assets/img/programacao.png"></img>Programação</a></li>
+          <li><a th:if="${session.usuarioLogado == null}" href="/login"><img src="/assets/img/login.png"></img>Login</a></li>
+          <li><a th:if="${session.usuarioLogado == null}" href="/exibirFormParticipante"><img src="./assets/img/cad.png"></img>Cadastro</a></li>
+          <li>
+		    <div class="dropdown" th:if="${session.usuarioLogado != null}">
+			  	<a href="#" data-toggle="dropdown">
+			  	<span ><img src="./assets/img/avatar.png"></img></span>
+			   		<span  th:text="${session.usuarioLogado.nome}"></span>
+			 	 </a>
+			 	 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+			    <a class="dropdown-item" href="#">Configurações</a>
+			    
+			    <a class="dropdown-item" href="/deslogar">Sair</a>
+		  		</div>
+			</div>
+          </li>
         </ul>
         
       </nav><!-- .main-nav -->
-      
+      	
     </div>
   </header><!-- #header -->
-
   <!--==========================
     Intro Section
   ============================-->
+  <br><br>
   <section id="intro" class="clearfix">
     <div class="container d-flex h-100">
       <div class="row justify-content-center">
@@ -98,7 +107,8 @@ xmlns:th="http://www.thymeleaf.org">
       <div class="card-body">
         <h5 class="card-title">Aprendendo html</h5>
         <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
+        <span th:if="${session.usuarioLogado != null}"><a href="#" class="btn btn-primary">Go somewhere</a></span>
+        <span th:if="${session.usuarioLogado == null}"><a  >Entre para se casdastrar</a></span>
       </div>
     </div>
   </div>

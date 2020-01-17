@@ -35,6 +35,8 @@ public class Participante {
 	@NotBlank(message = "senha deve ser preenchida")
 	private String senha;
 	
+	private String token;
+	
 
 	public Integer getIdParticipante() {
 		return idParticipante;
@@ -59,7 +61,7 @@ public class Participante {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-
+	
 	public String getCpf() {
 		return cpf;
 	}
@@ -75,9 +77,14 @@ public class Participante {
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
-
 	
+	public String getToken() {
+		return token;
+	}
 	
+	public void setToken(String token) {
+		this.token = token;
+	}
 	
-	
+		
 }

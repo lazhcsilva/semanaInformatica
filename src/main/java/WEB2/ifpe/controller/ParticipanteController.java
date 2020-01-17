@@ -44,16 +44,28 @@ public class ParticipanteController {
 		try {
 			participanteLogado = this.participanteService.logarParticipante(particpanteAtributos.getEmail(), particpanteAtributos.getSenha());
 			session.setAttribute("usuarioLogado", participanteLogado);
+			ra.addFlashAttribute("mensagem", "logado");
+
 		} catch (ServiceException e) {
-			ra.addFlashAttribute("mensagemErro", e.getMessage());
+
+			ra.addFlashAttribute("mensagem", e.getMessage());
+			System.out.println(e.getMessage());
+			ra.addFlashAttribute("particpanteAtributos", particpanteAtributos);
 
 			return "redirect:/login";
 		}
+		
 
 		ra.addFlashAttribute("loginEfetuado", true);
 		return redirect;
 	}
 	
+	@GetMapping("/login")
+	public String login(Participante participante) {
+	
+		return "login";
+	
+	}
 	@GetMapping("/deslogar")
 	public String deslogar(HttpSession session) {
 		session.invalidate();

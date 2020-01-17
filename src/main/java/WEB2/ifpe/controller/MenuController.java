@@ -29,12 +29,7 @@ public class MenuController {
 		
 	}
 	
-	@GetMapping("/login")
-	public String login(Participante participante) {
 	
-		return "login";
-	
-	}
 	
 	
 	/*

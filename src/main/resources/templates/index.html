@@ -15,9 +15,8 @@ xmlns:th="http://www.thymeleaf.org">
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,500,600,700,700i|Montserrat:300,400,500,600,700" rel="stylesheet">
   
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
   <!-- Bootstrap CSS File -->
   <link rel="stylesheet" href="assets/lib/bootstrap/css/bootstrap.min.css">
 
@@ -53,14 +52,14 @@ xmlns:th="http://www.thymeleaf.org">
 
       <nav class="main-nav float-right d-none d-lg-block">
         <ul>
-          <li class="active"><a href="#intro">Home</a></li>
-           <li><a class="ml-3"  href="/programacao">Programação</a></li>
-          <li><a th:if="${session.usuarioLogado == null}" href="/login">Login</a></li>
-          <li><a th:if="${session.usuarioLogado == null}" href="/exibirFormParticipante">Cadastro</a></li>
+          <li class="active"><a href="#intro"><img src="./assets/img/home.png"></img>Home</a></li>
+           <li><a class="ml-3"  href="/programacao"><img src="./assets/img/programacao.png"></img>Programação</a></li>
+          <li><a th:if="${session.usuarioLogado == null}" href="/login"><img src="/assets/img/login.png"></img>Login</a></li>
+          <li><a th:if="${session.usuarioLogado == null}" href="/exibirFormParticipante"><img src="./assets/img/cad.png"></img>Cadastro</a></li>
           <li>
 		    <div class="dropdown" th:if="${session.usuarioLogado != null}">
 			  	<a href="#" data-toggle="dropdown">
-			  	<span  class="glyphicon glyphicon-user"></span>
+			  	<span ><img src="./assets/img/avatar.png"></img></span>
 			   		<span  th:text="${session.usuarioLogado.nome}"></span>
 			 	 </a>
 			 	 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -121,6 +120,7 @@ xmlns:th="http://www.thymeleaf.org">
   <script src="assets/contactform/contactform.js"></script>
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sweetalert2@9.5.4/dist/sweetalert2.all.min.js"></script>
 
   <!-- Template Main Javascript File -->
   <script src="assets/js/main.js"></script>
@@ -187,17 +187,17 @@ xmlns:th="http://www.thymeleaf.org">
                 <!-- /.footer-links -->
                 <!-- tiny-footer -->
             </div>
-            <div class="row ">
-                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 text-center ">
-                    <div class="tiny-footer">
-                        <p>Copyright © All Rights Reserved 2020 | Template Design & Development by <a href=";;;; " target="_blank" class="copyrightlink"> TIJG NOITE</a></p>
-                    </div>
-                </div>
-                <!-- /. tiny-footer -->
-            </div>
+           
         </div>
     </div>
     <!-- /.footer -->
-
+			<script th:if="${mensagem != null && mensagem == 'logado'}" type="text/javascript">
+			 Swal.fire({
+		    	  icon: 'success',
+		    	  title: 'Logado com sucesso!!',
+		    	  showConfirmButton: false,
+		    	  timer: 3000
+		    	})
+			</script>
 </body>
 </html>

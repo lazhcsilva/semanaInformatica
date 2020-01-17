@@ -2,11 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:th="http://www.thymeleaf.org">
 <head>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-<meta charset="UTF-8">
-<title>Cadastrar Evento</title>
-<!-- Favicons -->
-   <link rel="stylesheet" href="assets/css/index.css">
+ <link rel="stylesheet" href="assets/css/index.css">
 	<link href="assets/img/favicon.png" rel="icon">
 	<link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 	<!-- Bootstrap CSS File -->
@@ -21,7 +17,10 @@
 	<link rel="stylesheet" href="assets/css/style.css">
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,500,600,700,700i|Montserrat:300,400,500,600,700" rel="stylesheet">
 	<!-- Main Stylesheet File -->
-	<link rel="stylesheet" href="assets/css/style.css">
+	<link rel="stylesheet" href="./assets/css/login.css">
+	<!--  -->
+	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
 </head>
 <body>
 
@@ -48,9 +47,9 @@
       
 	</div>
 </header>
-<br><br><br><br><br><br>
+<br><br><br><br>
 
-<form th:action="@{/salvarEvento}" th:object="${evento}"  method="post">
+<form class="form-group"  th:action="@{/salvarEvento}" th:object="${evento}"  method="post">
 <input type="hidden" th:value="*{idEvento}"/>
 
   <div class="form-group">
@@ -63,34 +62,34 @@
     <input type="text" class="ml-3 form-control col-lg-4" id="exampleFormControlInput1" placeholder="" th:field="*{sala}">
   </div>
  
-  <div class="ml-1 form-group col-lg-8">
-    <label for="exampleFormControlSelect1" class="col-lg-">Selecione o Palestrante</label>
-    <select class="form-control col-lg-6" id="exampleFormControlSelect1">
+  <div class="form-group">
+    <label for="exampleFormControlSelect1" class="col-lg-4">Selecione o Palestrante</label>
+    <select class="ml-3 form-control col-lg-4" id="palestrante" >
       <option>Selecione o Palestrante pelo nome</option>
-      <option th:each="palestrante : ${listaPalestrante}" th:text="${palestrante.nome}" th:value="${palestrante.idPalestrante}" />
+      <option th:each="palestrante : ${listaPalestrante}"  th:text="${palestrante.nome}" th:value="${palestrante.idPalestrante}"  value=""/>
      </select>
-  </div><br>
-  
-   <div class="ml-3 form-group" >
-    <label for="exampleFormControlSelect1">Data</label>
-    <input type="date" th:field="*{data}">
-    <label for="exampleFormControlSelect1">Início</label>
-    <input type="time" th:field="*{horaInicio}">
-    <label for="exampleFormControlSelect1">Fim</label>
-    <input type="time" th:field="*{horaFim}">
-  </div><br>
-  
-  <div class="ml-3 form-group">
-    <label for="exampleFormControlSelect1">Salas/Vagas disponiveis</label>
-    <select class="form-control col-lg-6" id="exampleFormControlSelect1"></select>
   </div>
   
-  <div class="ml-3 form-group">
-    <label for="exampleTextarea">Descricao</label>
-    <textarea class="form-control col-lg-6" id="exampleTextarea" rows="3" th:field="*{descricao}"></textarea>
+   <div class="form-group" >
+    <label class="col-lg-4"  for="exampleFormControlSelect1">Data</label>
+    <input class="ml-3 form-control col-lg-2" type="date" th:field="*{data}">
+    <label class="col-lg-4" for="exampleFormControlSelect1">Início</label>
+    <input class="ml-3 form-control col-lg-2" type="time" th:field="*{horaInicio}">
+    <label class="col-lg-4" for="exampleFormControlSelect1">Fim</label>
+    <input class="ml-3 form-control col-lg-2" type="time" th:field="*{horaFim}">
+  </div><br>
+  
+  <div class="form-group">
+    <label class="col-lg-4" for="exampleFormControlSelect1">Vagas disponiveis</label>
+    <input  class="ml-3 form-control col-lg-4" id="exampleFormControlSelect1"></input>
   </div>
   
-  <button class="ml-3 form-group" type="submit">Enviar</button>
+  <div class="form-group">
+    <label class="col-lg-4" for="exampleTextarea">Descricao</label>
+    <textarea class="ml-3 form-control col-lg-4" id="exampleTextarea" rows="3" th:field="*{descricao}"></textarea>
+  </div>
+  
+  <button  class="btn btn-black" type="submit">Enviar</button>
 </form>
 
 <footer id="footer" class="section-bg">

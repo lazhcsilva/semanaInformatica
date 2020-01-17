@@ -46,6 +46,9 @@ public class PalestranteController {
 		return "redirect:/exibirFormPalestrante";
 	}
 	
+	
+	
+	
 	@PostMapping("/login")
 	public String palestranteLogin(HttpServletRequest request, @ModelAttribute Palestrante palestrante, @RequestParam(name = "retorno", required = false) String retorno, RedirectAttributes ra, HttpSession session) throws NoSuchAlgorithmException, UnsupportedEncodingException {
 		
@@ -60,8 +63,6 @@ public class PalestranteController {
 			session.setAttribute("usuarioLogado", palestranteLogado);
 		} catch (ServiceException e) {
 			ra.addFlashAttribute("mensagemErro", e.getMessage());
-
-			return "redirect:/perfil";
 		}
 
 		ra.addFlashAttribute("loginEfetuado", true);
@@ -80,6 +81,7 @@ public class PalestranteController {
 				model.addAttribute("mensagem", "Já existe um Palestrante com este email");
 				return this.exibirForm(palestrante);
 			}
+			
 			return "redirect:/listarPalestrante";
 	}
 	

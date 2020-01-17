@@ -27,24 +27,39 @@
 <title>Cadastrar</title>
 </head>
 <body>
-	<header id="header">
+ <header id="header">
 
     <div class="container">
 
       <div class="logo float-left">
-        <h1 class="text-light"><a href=/index class="scrollto"><span>IFPE</span></a></h1>
+        <h1 class="text-light"><a href="#intro" class="scrollto"><span>IFPE</span></a></h1>
       </div>
 
       <nav class="main-nav float-right d-none d-lg-block">
         <ul>
-          <li><a href="/index">Home</a></li>
-          <li><a href="/login">Login</a></li>
-          <li class="active"><a href="/exibirFormParticipante">Cadastro</a></li>
+          <li class="active"><a href="#intro"><img src="./assets/img/home.png"></img>Home</a></li>
+           <li><a class="ml-3"  href="/programacao"><img src="./assets/img/programacao.png"></img>Programação</a></li>
+          <li><a th:if="${session.usuarioLogado == null}" href="/login"><img src="/assets/img/login.png"></img>Login</a></li>
+          <li><a th:if="${session.usuarioLogado == null}" href="/exibirFormParticipante"><img src="./assets/img/cad.png"></img>Cadastro</a></li>
+          <li>
+		    <div class="dropdown" th:if="${session.usuarioLogado != null}">
+			  	<a href="#" data-toggle="dropdown">
+			  	<span ><img src="./assets/img/avatar.png"></img></span>
+			   		<span  th:text="${session.usuarioLogado.nome}"></span>
+			 	 </a>
+			 	 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+			    <a class="dropdown-item" href="#">Configurações</a>
+			    
+			    <a class="dropdown-item" href="/deslogar">Sair</a>
+		  		</div>
+			</div>
+          </li>
         </ul>
+        
       </nav><!-- .main-nav -->
-      
+      	
     </div>
-  </header>
+  </header><!-- #header -->
   <section id="intro" class="clearfix">
     <div class="container d-flex h-100">
       <div class="row justify-content-center align-self-center">
