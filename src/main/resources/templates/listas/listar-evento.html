@@ -60,7 +60,7 @@
 				</tr>
 			</thead>
 			<tr th:each="evento : ${lista}">
-				<td th:text="${evento.nomedaatividade}"></td>
+				<td th:text="${evento.nomeAtividade}"></td>
 				<td th:text="${evento.palestrante.nome}"></td>
 				<td  th:text="${evento.sala/hora}"></td>
 			</tr>

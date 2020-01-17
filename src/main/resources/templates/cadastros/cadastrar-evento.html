@@ -64,7 +64,7 @@
  
   <div class="form-group">
     <label for="exampleFormControlSelect1" class="col-lg-4">Selecione o Palestrante</label>
-    <select class="ml-3 form-control col-lg-4" id="palestrante" >
+    <select class="ml-3 form-control col-lg-4" id="palestrante" th:field="*{palestrante}">
       <option>Selecione o Palestrante pelo nome</option>
       <option th:each="palestrante : ${listaPalestrante}"  th:text="${palestrante.nome}" th:value="${palestrante.idPalestrante}"  value=""/>
      </select>
@@ -80,8 +80,13 @@
   </div><br>
   
   <div class="form-group">
-    <label class="col-lg-4" for="exampleFormControlSelect1">Vagas disponiveis</label>
-    <input  class="ml-3 form-control col-lg-4" id="exampleFormControlSelect1"></input>
+    <label  class="col-lg-4" for="exampleFormControlSelect1">Salas/Vagas disponiveis</label>
+    <select class="ml-3 form-control col-lg-4" id="exampleFormControlSelect1" th:field="*{sala}">
+    	     <option>Selecione o Palestrante pelo nome</option>
+    		 <option th:each="sala : ${listaSala}"  th:text="${sala.numero}" th:value="${sala.idSala}"  value=""/>
+    </select>
+   
+   
   </div>
   
   <div class="form-group">

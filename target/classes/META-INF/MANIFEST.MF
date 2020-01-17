@@ -1,9 +1,9 @@
 Manifest-Version: 1.0
 Implementation-Title: SemanaInformatica
 Implementation-Version: 0.0.1-SNAPSHOT
-Built-By: Pichau
+Built-By: aluno
 Implementation-Vendor-Id: WEB2.ifpe
-Build-Jdk: 1.8.0_221
+Build-Jdk: 1.8.0_201
 Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
  ot-starter-parent/SemanaInformatica
 Created-By: Maven Integration for Eclipse
