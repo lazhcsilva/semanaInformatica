@@ -46,7 +46,7 @@ public class SalaController {
 	
 	@PostMapping("/salvarSala")
 	public String salvarSala(@Valid Sala sala, 
-			BindingResult br, RedirectAttributes ra, Model model) {
+			BindingResult br, RedirectAttributes ra, Model model) {      
 		if (br.hasErrors()) {
 			return this.exibirForm(sala);
 		}
