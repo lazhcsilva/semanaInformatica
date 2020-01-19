@@ -2,9 +2,13 @@ package WEB2.ifpe.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.validation.constraints.NotBlank;
+
+import WEB2.ifpe.enums.TipoPalestranteEnum;
 
 @Entity
 public class Palestrante {
@@ -23,6 +27,9 @@ public class Palestrante {
 	
 	private String cpf;
 
+	@Enumerated(EnumType.ORDINAL)
+	private TipoPalestranteEnum tipoPalestrante = TipoPalestranteEnum.PADRAO;
+	
 	public Integer getIdPalestrante() {
 		return idPalestrante;
 	}
@@ -61,6 +68,14 @@ public class Palestrante {
 
 	public void setCpf(String cpf) {
 		this.cpf = cpf;
+	}
+
+	public TipoPalestranteEnum getTipoPalestrante() {
+		return tipoPalestrante;
+	}
+
+	public void setTipoPalestrante(TipoPalestranteEnum tipoPalestrante) {
+		this.tipoPalestrante = tipoPalestrante;
 	}
 	
 	

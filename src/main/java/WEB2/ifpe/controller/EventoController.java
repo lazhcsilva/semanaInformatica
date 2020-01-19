@@ -28,8 +28,7 @@ public class EventoController {
 	
 	@Autowired
 	private SalaService salaService;
-	
-	
+		
 	@GetMapping("/listarEvento")
 	public String exibirLista(Model model) {
 		model.addAttribute("lista", this.eventoService.listarTodos(Sort.by("nomeAtividade")));
@@ -50,24 +49,15 @@ public class EventoController {
 		model.addAttribute("listaSala", this.salaService.listarTodos(Sort.by("numero")));
 		return "evento/evento-form";
 	}
-	/*
-	@GetMapping("/removerEvento")
-	public String removerEvento(Integer idEvento) {
-		this.eventoService.remover(idEvento);
-		return "redirect:/listarEvento";
-		
-	}*/
 	
 	@PostMapping("/salvarEvento")
 	public String salvarEvento(@Valid Evento evento, BindingResult br, RedirectAttributes ra, Model model) {
-//		if (!br.hasErrors()) {
-//			return this.exibirForm(evento, model);
-//		}
-
-
-//				model.addAttribute("mensagem", "Já existe um cadastro com nome deste evento");
-//				return this.exibirForm(evento, model);
-			eventoService.salvarEvento(evento);
-			return "redirect:/listarEvento";
+	
+		this.eventoService.salvarEvento(evento);
+		return "redirect:/listarPalestrante";
+	
 	}
+
+	
+	
 }

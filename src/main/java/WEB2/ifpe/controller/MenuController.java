@@ -3,8 +3,6 @@ package WEB2.ifpe.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
-import WEB2.ifpe.model.Participante;
-
 @Controller
 public class MenuController {
 
@@ -29,51 +27,11 @@ public class MenuController {
 		
 	}
 	
-	
-	
-	
-	/*
-	@GetMapping("/listarPalestrante")
-	public String listarPalestrante() {
+	@GetMapping("/gestor")
+	public String gestor() {
 		
-		return "listas/listar-palestrante";
+		return "gestor";
 		
 	}
-	
-	 
-	@GetMapping("/cadastrarPalestrante")
-	public String cadastrarpalestrante() {
-		
-		return "cadastros/cadastrar-palestrante";
-	
-	} 
-	
-	@GetMapping("/cadastrarParticipante")
-	public String cadastrarparticipante() {
-	
-		return "cadastros/cadastrar-participante";
-	
-	}
-	
-	@GetMapping("/listarParticipante")
-	public String listarparticipante() {
-	
-		return "listas/listar-participante";
-	
-	}
-	
-	@GetMapping("/cadastrarSala")
-	public String cadastrarsala() {
-	
-		return "cadastros/cadastrar-sala";
-	
-	}
-	
-	@GetMapping("/cadastrarEvento")
-	public String cadastrarEvento() {
-	
-		return "cadastros/cadastrar-evento";
-	
-	}*/
 	
 }
