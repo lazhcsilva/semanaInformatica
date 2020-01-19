@@ -3,6 +3,7 @@ package WEB2.ifpe.model;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
@@ -13,7 +14,7 @@ import javax.validation.constraints.Size;
 public class Sala {
 
 
-	@Id @GeneratedValue
+	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer idSala;
 	
 	@NotBlank(message = "O Numero Da Sala deve ser preenchido")

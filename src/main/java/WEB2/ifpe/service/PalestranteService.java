@@ -4,11 +4,14 @@ import java.io.UnsupportedEncodingException;
 import java.security.NoSuchAlgorithmException;
 import java.util.List;
 
+import javax.mail.MessagingException;
+
 import org.hibernate.service.spi.ServiceException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
+import WEB2.ifpe.enums.TipoPalestranteEnum;
 import WEB2.ifpe.model.Palestrante;
 import WEB2.ifpe.persistence.PalestranteDAO;
 import WEB2.ifpe.util.Util;
@@ -28,21 +31,23 @@ public class PalestranteService {
 		return this.palestranteDAO.getOne(idPalestrante);
 	}
 	
-	
-	public boolean salvarPalestrante(Palestrante palestrante) {
+	public boolean criarPalestrante(Palestrante palestrante) throws ServiceException, MessagingException {
 		
-		// Verificar a existencia de um Palestrante com o email
-		
-		Palestrante palestranteComEmailExistente = this.palestranteDAO.findByEmail(palestrante.getEmail());
-		
-		
-		
-		
-		if (palestranteComEmailExistente == null) {
+		String senhaCriptografada;
+		try {
+			
+			senhaCriptografada = Util.criptografarSenha(palestrante.getSenha());
+			palestrante.setSenha(senhaCriptografada);
 			this.palestranteDAO.save(palestrante);	
-			return true;
+		
+		} catch (Exception e) {
+			// TODO: handle exception
 		}
-		return false;	
+		
+		palestrante.setTipoPalestrante(TipoPalestranteEnum.PADRAO);
+		this.save(palestrante);
+		return true;
+	
 	}
 	
 	public Palestrante logarPalestrante(String email, String senha) throws ServiceException, NoSuchAlgorithmException, UnsupportedEncodingException {	
@@ -56,7 +61,10 @@ public class PalestranteService {
 
 		return palestrante;
 	}
-		
+	
+	public void save(Palestrante palestrante) {
+		this.palestranteDAO.save(palestrante);
+	}
 
 	public void remover(Integer idPalestrante) {
 		this.palestranteDAO.deleteById(idPalestrante);

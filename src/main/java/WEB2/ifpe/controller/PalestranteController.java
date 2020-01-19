@@ -37,17 +37,41 @@ public class PalestranteController {
 	
 	@GetMapping("/exibirFormPalestrante")
 	public String exibirForm(Palestrante palestrante) {
+	
 		return "cadastros/cadastrar-palestrante";
+	
 	}
 	
 	@GetMapping("/editarPalestrante")
 	public String editarPalestrante(Integer idPalestrante, Model model) {
+	
 		model.addAttribute("palestrante", this.palestranteService.obterPorId(idPalestrante));
 		return "redirect:/exibirFormPalestrante";
+
+	}	
+	
+	@PostMapping("/salvarPalestrante")
+	public String salvarPa(@Valid Palestrante palestrante, BindingResult br) {
+		if (br.hasErrors()) {
+			return this.exibirForm(palestrante);
+		}
+		this.palestranteService.save(palestrante);
+		return "redirect:/listarPalestrante";
 	}
 	
+	@GetMapping("/removerPalestrante")
+	public String removerPalestrante(Integer idPalestrante) {
+		this.palestranteService.remover(idPalestrante);
+		return "redirect:/listarPalestrante";
+	}
 	
+	@PostMapping("/logout")
+	public String logout(HttpSession sessao) {
+		
+		sessao.invalidate();
+		return "redirect:/index";
 	
+	}
 	
 	@PostMapping("/login")
 	public String palestranteLogin(HttpServletRequest request, @ModelAttribute Palestrante palestrante, @RequestParam(name = "retorno", required = false) String retorno, RedirectAttributes ra, HttpSession session) throws NoSuchAlgorithmException, UnsupportedEncodingException {
@@ -69,33 +93,4 @@ public class PalestranteController {
 		return redirect;
 	}
 	
-	
-	@PostMapping("/salvarPalestrante")
-	public String salvarPalestrante(@Valid Palestrante palestrante, BindingResult br, RedirectAttributes ra, Model model) {
-		if (br.hasErrors()) {
-			return this.exibirForm(palestrante);
-		}
-		boolean retorno = 
-				this.palestranteService.salvarPalestrante(palestrante);
-			if (retorno == false) {
-				model.addAttribute("mensagem", "Já existe um Palestrante com este email");
-				return this.exibirForm(palestrante);
-			}
-			
-			return "redirect:/listarPalestrante";
-	}
-	
-	@GetMapping("/removerPalestrante")
-	public String removerPalestrante(Integer idPalestrante) {
-		this.palestranteService.remover(idPalestrante);
-		return "redirect:/listarPalestrante";
-	}
-	
-	@PostMapping("/logout")
-	public String logout(HttpSession sessao) {
-		
-		sessao.invalidate();
-		return "redirect:/index";
-	
-	}
 }

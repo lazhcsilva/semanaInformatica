@@ -29,9 +29,6 @@ public class EventoService {
 		this.eventoDAO.deleteById(idEvento);
 	}
 
-
-	
-
 	public Evento salvarEvento(Evento evento){
 		
 		this.checarRegras(evento);

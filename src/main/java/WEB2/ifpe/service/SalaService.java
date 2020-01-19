@@ -29,14 +29,22 @@ public class SalaService {
 		
 	}
 	
-	public boolean salvarSala(Sala sala) {
+	public Sala novaSala(Sala sala){
 		
 		Sala SalaComNumeroExistente = this.salaDAO.findByNumero(sala.getNumero());
 		
 		if (SalaComNumeroExistente == null) {
-			this.salaDAO.save(sala);	
-			return true;
+			this.save(sala);
+			return (sala);
 		}
-		return false;	
+		
+		return sala;
 	}
+	
+	public void save(Sala sala) {
+	
+		this.salaDAO.save(sala);
+	
+	}
+	
 }

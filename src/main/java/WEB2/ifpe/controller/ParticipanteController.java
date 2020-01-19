@@ -20,7 +20,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import WEB2.ifpe.model.Palestrante;
 import WEB2.ifpe.model.Participante;
 import WEB2.ifpe.service.ParticipanteService;
 

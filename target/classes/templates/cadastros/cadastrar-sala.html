@@ -60,26 +60,17 @@
         </div>
        
          <div class="col-md-6 col-sm-12">
-   			 <form action="/salvarSala" th:object="${sala}"
-						method="post" id="form">
-						<div></div>
-
-						<input type="hidden" th:value="*{idSala}" />
-						
+   			 <form action="/salvarSala" th:object="${sala}" method="post" id="form">
 						<div class="form-group">
-							<label>Numero da sala</label> <input type="number"
-								class="form-control" name="numero" id="numero" placeholder="000" th:field="*{numero}">
+							<label>Numero da sala</label>
+							<input type="number" class="form-control" name="numero" id="numero" placeholder="000" th:field="*{numero}">
 						</div>
 						<div class="form-group">
-							<label>Capacidade</label> <input type="number" class="form-control"
-								name="capacidade" id="capacidade" placeholder="000" th:field="*{capacidade}">
+							<label>Capacidade</label> 
+							<input type="number" class="form-control" name="capacidade" id="capacidade" placeholder="000" th:field="*{capacidade}">
 						</div>
-							
-							<div th:if="${mensagemErro != null}" th:text="${mensagemErro}"
-							style="color: red;" class=""></div>
-
+						<div th:if="${mensagemErro != null}" th:text="${mensagemErro}" style="color: red;" class=""></div>
 						<button type="submit" class="btn btn-black">Cadastrar</button>
-						
 					</form>
                </div>
             </div>

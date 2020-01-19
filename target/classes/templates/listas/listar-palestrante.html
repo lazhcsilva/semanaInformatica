@@ -83,19 +83,19 @@
 									<tr>
 										<th>Nome</th>
 										<th>Email</th>
-
+										<th>Evento</th>
 									</tr>
 								</thead>
 								<tr th:each="palest : ${lista}">
 									<td th:text="${palest.nome}"></td>
 									<td th:text="${palest.email}"></td>
-									<!--<td th:text="${cadastrarevento.palest.nomedaavtividade}"></td> -->
 								</tr>
 							</table>
 							<hr />
-							<a href="/cadastrarEvento" class="btn btn-primary btn-sm active"
-								role="button" aria-pressed="true">Novo Evento</a>
-
+							
+							<a href="/cadastrarEvento" class="btn btn-primary btn-sm active" role="button" aria-pressed="true">Novo Evento</a>
+							<a href="/gestor" class="btn btn-primary btn-sm active" role="button" aria-pressed="true">Novo Palestrante</a>
+							
 						</div>
 					</div>
 

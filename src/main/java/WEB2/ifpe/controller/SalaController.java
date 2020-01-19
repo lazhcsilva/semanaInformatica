@@ -45,17 +45,17 @@ public class SalaController {
 	}
 	
 	@PostMapping("/salvarSala")
-	public String salvarSala(@Valid Sala sala, 
-			BindingResult br, RedirectAttributes ra, Model model) {      
+	public String salvarSala(@Valid Sala sala, BindingResult br, RedirectAttributes ra, Model model) {      
+		
 		if (br.hasErrors()) {
+		
 			return this.exibirForm(sala);
+		
 		}
-		boolean retorno = 
-				this.salaService.salvarSala(sala);
-			if (retorno == false) {
-				model.addAttribute("mensagem", "Ja Foi Cadastrada a Capacidade Desta Sala ");
-				return this.exibirForm(sala);
-			}
-			return "redirect:/listarSala";
+
+		this.salaService.novaSala(sala);
+
+		return "redirect:/listarSala";
+		
 	}
 }

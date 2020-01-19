@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Gestor Home</title>
+ <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="" name="keywords">
+  <meta content="" name="description">
+  
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,500,600,700,700i|Montserrat:300,400,500,600,700" rel="stylesheet">
+  
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <!-- Bootstrap CSS File -->
+  <link rel="stylesheet" href="assets/lib/bootstrap/css/bootstrap.min.css">
+
+  <!-- Libraries CSS Files -->
+   <link rel="stylesheet" href="assets/css/index.css">
+  <link rel="stylesheet" href="assets/lib/font-awesome/css/font-awesome.min.css">
+  <link href="assets/lib/animate/animate.min.css" rel="stylesheet">
+  <link href="assets/lib/ionicons/css/ionicons.min.css" rel="stylesheet">
+  <link href="assets/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+  <link href="assets/lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/css/gestor.css">
+  <link rel="stylesheet" href="assets/css/bootstrap.css">
+  
+	
+  <!-- Main Stylesheet File -->
+  <link rel="stylesheet" href="assets/css/style.css">
+
+
+  <!-- =======================================================
+    Theme Name: Rapid
+    Theme URL: https://bootstrapmade.com/rapid-multipurpose-bootstrap-business-template/
+    Author: BootstrapMade.com
+    License: https://bootstrapmade.com/license/
+  ======================================================= -->
+</head>
+<body>
+	  <header id="header">
+
+    <div class="container">
+
+      <div class="logo float-left">
+        <h1 class="text-light"><a href="/index" class="scrollto"><span>IFPE</span></a></h1>
+      </div>
+
+      <nav class="main-nav float-right d-none d-lg-block">
+        <ul>
+          <li class="active"><a href="#intro"><img src="./assets/img/home.png"></img>Home</a></li>
+           <li><a class="ml-3"  href="/programacao"><img src="./assets/img/programacao.png"></img>Programação</a></li>
+          <li><a th:if="${session.usuarioLogado == null}" href="/login"><img src="/assets/img/login.png"></img>Login</a></li>
+          <li><a th:if="${session.usuarioLogado == null}" href="/exibirFormParticipante"><img src="./assets/img/cad.png"></img>Cadastro</a></li>
+          <li>
+		    <div class="dropdown" th:if="${session.usuarioLogado != null}">
+			  	<a href="#" data-toggle="dropdown">
+			  	<span ><img src="./assets/img/avatar.png"></img></span>
+			   		<span  th:text="${session.usuarioLogado.nome}"></span>
+			 	 </a>
+			 	 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+			    <a class="dropdown-item" href="#">Configurações</a>
+			    
+			    <a class="dropdown-item" href="/deslogar">Sair</a>
+		  		</div>
+			</div>
+          </li>
+        </ul>
+        
+      </nav><!-- .main-nav -->
+      	
+    </div>
+  </header><!-- #header -->
+	
+	<section id="intro" class="clearfix">
+		<div class="container d-flex h-100">
+			<div class="row justify-content-center align-self-center">
+				<div class="container3">
+		<div class="row">
+			<div class="card profile" style="width: 18rem;">
+				<div class="card-body">
+					<img src="assets/img/francisco.jpg">
+					<h5 class="card-title">Francisco Nascimento</h5>
+					<h6 class="card-subtitle mb-2 text-muted">Coordenador de Informatica - IFPE</h6>
+					<p class="card-text">"Identem seu codigo!!!"</p>
+					<div class="col-md-6 col-sm-12">
+					<div class="col-md-6 col-sm-12">
+						<div class="contatiner col-sm-auto col-md-auto col-md-offset-2">
+							<a href="/exibirFormPalestrante" class="btn btn-primary btn-sm active"
+								role="button" aria-pressed="true">Novo palestrante</a>
+						</div>
+						<div class="contatiner col-sm-auto col-md-auto col-md-offset-2">
+							<a href="/exibirFormEvento" class="btn btn-primary btn-sm active"
+								role="button" aria-pressed="true">Novo evento</a>
+						</div>
+					</div>
+				</div>
+				</div>
+			</div>
+		</div>
+	</div>
+			</div>
+		</div>
+	</section>
+	
+	<a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+
+	<!-- JavaScript Libraries -->
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
+	<script src="assets/lib/jquery/jquery.min.js"></script>
+	<script src="assets/lib/jquery/jquery-migrate.min.js"></script>
+	<script src="assets/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+	<script src="assets/lib/easing/easing.min.js"></script>
+	<script src="assets/lib/mobile-nav/mobile-nav.js"></script>
+	<script src="assets/lib/wow/wow.min.js"></script>
+	<script src="assets/lib/waypoints/waypoints.min.js"></script>
+	<script src="assets/lib/counterup/counterup.min.js"></script>
+	<script src="assets/lib/owlcarousel/owl.carousel.min.js"></script>
+	<script src="assets/lib/isotope/isotope.pkgd.min.js"></script>
+	<script src="assets/lib/lightbox/js/lightbox.min.js"></script>
+	<!-- Contact Form JavaScript File -->
+	<script src="assets/contactform/contactform.js"></script>
+	
+
+	<!-- Template Main Javascript File -->
+	<script src="assets/js/main.js"></script>
+
+	<!-- validações -->
+	<script type="text/javascript"
+		src="./js/localization/messages_pt_BR.js"></script>
+	<script type="text/javascript" src="./js/validacao.js"></script>
+
+ <!-- footer -->
+   <script src="assets/js/main.js"></script>
+      <!-- footer -->
+    <div class="footer">
+        <div class="container">
+            <hr class="footer-line">
+            <div class="row ">
+                <!-- footer-about -->
+                <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-6 ">
+                    <div class="footer-widget ">
+                        <div class="footer-title"><a href="https://portal.ifpe.edu.br/campus/jaboatao">IFPE</a></div>
+                        <ul class="list-unstyled">
+                            <li><a href="#">Sobre nós</a></li>
+                            <li><a href="#">Contato</a></li>
+                            <li><a href="#">Politica de privacidade</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- /.footer-about -->
+                <!-- footer-links -->
+                <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-6 ">
+                    <div class="footer-widget ">
+                        <div class="footer-title">Atividades</div>
+                        <ul class="list-unstyled">
+                            <li><a href="/exibirFormParticipante">Inscreva-se</a></li>
+                            <li><a href="#">Certificados</a></li>
+                            <li><a href="/listarEvento">Eventos</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- /.footer-links -->
+                <!-- footer-links -->
+                <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-6 ">
+                    <div class="footer-widget ">
+                        <div class="footer-title">Social</div>
+                        <ul class="list-unstyled">
+                           
+                            <li><a href="http://instagram.com/ifpejaboatao">Instagram</a></li>
+                            <li><a href="https://www.facebook.com/ifpejaboatao">Facebook</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- /.footer-links -->
+                <!-- footer-links -->
+                <div class="col-xl-3 col-lg-3 col-md-12 col-sm-6 col-6 ">
+                    <div class="footer-widget ">
+                        <h3 class="footer-title">Receba informações por email</h3>
+                        <form>
+                            <div class="newsletter-form">
+                                <input class="form-control" placeholder="Digite seu email" type="text">
+                                <button class="btn btn-default btn-sm" type="submit">Go</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <!-- /.footer-links -->
+                <!-- tiny-footer -->
+            </div>
+           
+        </div>
+    </div>
+    <!-- /.footer -->
+</body>
+</html>
