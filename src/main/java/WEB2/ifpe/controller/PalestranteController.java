@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import WEB2.ifpe.model.Palestrante;
+import WEB2.ifpe.persistence.PalestranteDAO;
 import WEB2.ifpe.service.PalestranteService;
 
 @Controller
@@ -28,6 +29,9 @@ public class PalestranteController {
 
 	@Autowired
 	private PalestranteService palestranteService;
+	
+	@Autowired
+	private PalestranteDAO palestranteDAO;
 	
 	@GetMapping("/listarPalestrante")
 	public String exibirLista(Model model) {
@@ -40,23 +44,23 @@ public class PalestranteController {
 	
 		return "cadastros/cadastrar-palestrante";
 	
-	}
-	
-	@GetMapping("/editarPalestrante")
-	public String editarPalestrante(Integer idPalestrante, Model model) {
-	
-		model.addAttribute("palestrante", this.palestranteService.obterPorId(idPalestrante));
-		return "redirect:/exibirFormPalestrante";
-
 	}	
+
 	
 	@PostMapping("/salvarPalestrante")
-	public String salvarPa(@Valid Palestrante palestrante, BindingResult br) {
+	public String salvarPalestrante(@Valid Palestrante palestrante, BindingResult br) {
 		if (br.hasErrors()) {
 			return this.exibirForm(palestrante);
 		}
 		this.palestranteService.save(palestrante);
 		return "redirect:/listarPalestrante";
+	}
+	
+	@GetMapping("/editarPalestrante")
+	public String editarPalestrante(Model model, Integer idPalestrante) {
+		 model.addAttribute("palestrante", this.palestranteDAO.findById(idPalestrante));
+		 return "cadastros/cadastrar-palestrante";
+		 
 	}
 	
 	@GetMapping("/removerPalestrante")

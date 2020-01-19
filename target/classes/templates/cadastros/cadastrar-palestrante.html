@@ -60,13 +60,11 @@
        
          <div class="col-md-6 col-sm-12">
             
-             <form action="/salvarPalestrante" th:object="${palestrante}"
-						method="post" id="form">
+             <form action="/salvarPalestrante" th:object="${palestrante}" method="post" id="form">
+				 <input type="hidden" th:field="*{idPalestrante}" />
 						
 						<div th:if="${mensagemErro != null}" th:text="${mensagemErro}"
 							style="color: red;" class=""></div>
-
-						<input type="hidden" th:value="*{idPalestrante}" />
 						
 						<div class="form-group">
 							<label>Nome do palastrante</label> <input type="text"

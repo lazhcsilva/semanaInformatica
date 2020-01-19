@@ -70,7 +70,7 @@
          <div class="col-md-6 col-sm-12" id="formCastro">
             
                <form th:action="@{/salvarParticipante}" th:object="${participante}" id="form" method="post">                                    
-                  
+                  <input type="hidden" th:field="*{idParticipante}">
                   <input type="hidden" th:value="*{idParticipante}"/>
                   <div class="form-group">
                      <label>Nome</label>
