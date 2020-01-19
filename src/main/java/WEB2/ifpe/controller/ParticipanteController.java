@@ -31,6 +31,7 @@ public class ParticipanteController {
 	@Autowired
 	private ParticipanteService participanteService;
 	
+	
 	@PostMapping("/participanteLogin")
 	public String participanteLogin(HttpServletRequest request, Participante particpanteAtributos, @RequestParam(name = "retorno", required = false) String retorno, RedirectAttributes ra, HttpSession session) throws NoSuchAlgorithmException, UnsupportedEncodingException {
 		
@@ -82,11 +83,6 @@ public class ParticipanteController {
 		return "/cadastro";
 	}
 	
-	@GetMapping("/editarParticipante")
-	public String editarParticipante(Integer idParticipante, Model model) {
-		model.addAttribute("participante", this.participanteService.obterPorId(idParticipante));
-		return "participante/participante-form";
-	}
 	
 	@PostMapping("/salvarParticipante")
 	public String salvarParticipante(@Valid Participante participante, 
@@ -110,9 +106,10 @@ public class ParticipanteController {
 	}
 	
 	
-	/*@GetMapping("/removerParticipante")
+	@GetMapping("/removerParticipante")
 	public String removerParticipante(Integer idParticipante) {
 		this.participanteService.remover(idParticipante);
 		return "redirect:/listarParticipante";
-	}*/
+	}
+
 }

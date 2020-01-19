@@ -57,12 +57,15 @@
 				<tr>
 					<th>Nome</th>
 					<th>Email</th>
-					
+					<th>CPF</th>
+					<th>Ação</th>					
 				</tr>
 			</thead>
 			<tr th:each="partic : ${lista}">
 				<td th:text="${partic.nome}"></td>
 				<td th:text="${partic.email}"></td>
+				<td th:text="${partic.cpf}"></td>
+			   <td><a th:href="@{/removerParticipante(idParticipante=${partic.idParticipante})}">Remover</a></td>
 				
 			</tr>
 		</table>

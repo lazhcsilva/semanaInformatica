@@ -52,6 +52,7 @@ public boolean salvarParticipante(Participante participante)throws ServiceExcept
 	else if (this.findParticipanteByCpf(participante.getCpf()) != null) {
 		throw new ServiceException("Já existe um usuário com este cpf");
 	}  else {
+		
 			String senhaCriptografada;
 			try {
 				senhaCriptografada = Util.criptografarSenha(participante.getSenha());
@@ -67,6 +68,7 @@ public boolean salvarParticipante(Participante participante)throws ServiceExcept
 	 
 }
 
+
 public Participante logarParticipante(String email, String senha) throws ServiceException, NoSuchAlgorithmException, UnsupportedEncodingException {	
 	
 	String senhaCriptografada = Util.criptografarSenha(senha);
@@ -79,5 +81,12 @@ public Participante logarParticipante(String email, String senha) throws Service
 	return participante;
 }
 
-	
+public void remover(Integer idParticipante) {
+	this.participanteDAO.deleteById(idParticipante);
 }
+
+}
+
+
+	
+
