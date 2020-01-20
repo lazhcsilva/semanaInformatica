@@ -22,12 +22,6 @@ public class MenuController {
 		
 	}
 	
-	@GetMapping("/paginaInicial")
-	public String paginainicial() {
-	
-		return "paginainicial";
-		
-	}
 	
 	@GetMapping("/programacao")
 	public String programacao(Evento evento , Model model) {

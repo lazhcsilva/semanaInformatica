@@ -23,7 +23,7 @@ public class SalaController {
 	
 	@GetMapping("/listarSala")
 	public String exibirLista(Model model) {
-		model.addAttribute("lista", this.salaService.listarTodos(Sort.by("numero")));
+		model.addAttribute("lista", this.salaService.listarTodos(Sort.by("nome")));
 		return "listas/listar-evento";
 	}
 

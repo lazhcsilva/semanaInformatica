@@ -17,7 +17,7 @@
 					<property name="com.jaspersoft.studio.unit.x" value="px"/>
 					<property name="com.jaspersoft.studio.unit.y" value="px"/>
 				</reportElement>
-				<imageExpression><![CDATA["C:\\Users\\Pichau\\Desktop\\Estudo\\Java\\SemanaInformatica\\semanaInformatica\\src\\main\\resources\\static\\assets\\img\\certificado.png"]]></imageExpression>
+				<imageExpression><![CDATA["//home//aluno//git//semanaInformatica//src//main//resources//static//assets//img//certificado.png"]]></imageExpression>
 			</image>
 			<textField>
 				<reportElement x="150" y="160" width="491" height="100" uuid="cce9ca88-e4cc-46c9-9496-4ffc074160ad"/>
