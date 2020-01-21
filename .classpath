@@ -13,9 +13,9 @@
 	</classpathentry>
 	<classpathentry kind="src" output="target/test-classes" path="src/test/java">
 		<attributes>
+			<attribute name="test" value="true"/>
 			<attribute name="optional" value="true"/>
 			<attribute name="maven.pomderived" value="true"/>
-			<attribute name="test" value="true"/>
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8">
@@ -26,24 +26,34 @@
 	<classpathentry kind="con" path="org.eclipse.m2e.MAVEN2_CLASSPATH_CONTAINER">
 		<attributes>
 			<attribute name="maven.pomderived" value="true"/>
+			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="src" path="target/generated-sources/annotations">
 		<attributes>
+			<attribute name="ignore_optional_problems" value="true"/>
 			<attribute name="optional" value="true"/>
 			<attribute name="maven.pomderived" value="true"/>
-			<attribute name="ignore_optional_problems" value="true"/>
 			<attribute name="m2e-apt" value="true"/>
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="src" output="target/test-classes" path="target/generated-test-sources/test-annotations">
 		<attributes>
+			<attribute name="ignore_optional_problems" value="true"/>
+			<attribute name="test" value="true"/>
 			<attribute name="optional" value="true"/>
 			<attribute name="maven.pomderived" value="true"/>
-			<attribute name="ignore_optional_problems" value="true"/>
 			<attribute name="m2e-apt" value="true"/>
-			<attribute name="test" value="true"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="lib/ant-commons-logging.jar"/>
+	<classpathentry kind="lib" path="lib/com.jaspersoft.studio.bundles.itext_2.1.7.js7_b01.jar"/>
+	<classpathentry kind="lib" path="lib/com.jaspersoft.studio.data_6.11.0.final.jar"/>
+	<classpathentry kind="lib" path="lib/commons-digester-2.1.jar"/>
+	<classpathentry kind="lib" path="lib/groovy-all_2.4.16.jar"/>
+	<classpathentry kind="lib" path="lib/jasperreports-6.11.0.jar"/>
+	<classpathentry kind="lib" path="lib/js-mongodb-datasource-3.10.2.jar"/>
+	<classpathentry kind="lib" path="lib/org.apache.commons.commons-collections4_4.4.0.jar"/>
+	<classpathentry kind="lib" path="lib/org.eclipse.jdt.core.compiler.batch.nl_it_4.2.0.v20130724060447.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.11.0.final using JasperReports Library version 6.11.0-0c4056ccaa4d25a5a8c45672d2f764ea3498bebb  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Blank_A4_Landscape_2" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="51ff1ba9-9be6-40c1-8210-30c64910edb0">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="nome" class="java.lang.String"/>
+	<parameter name="descricao" class="java.lang.String"/>
+	<parameter name="duracao" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<background>
+		<band height="555" splitType="Prevent">
+			<image>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="-20" width="802" height="575" uuid="51458f0c-8345-4ddc-bfc5-559b6e78aa7d">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<imageExpression><![CDATA["C:\\Users\\Pichau\\Desktop\\Estudo\\Java\\SemanaInformatica\\semanaInformatica\\src\\main\\resources\\static\\assets\\img\\certificado.png"]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement x="150" y="160" width="491" height="100" uuid="cce9ca88-e4cc-46c9-9496-4ffc074160ad"/>
+				<textElement textAlignment="Center">
+					<font size="24"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{nome} + ', ' +$P{descricao}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="150" y="280" width="491" height="60" uuid="cce9ca88-e4cc-46c9-9496-4ffc074160ad"/>
+				<textElement textAlignment="Center">
+					<font size="24"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{duracao}]]></textFieldExpression>
+			</textField>
+		</band>
+	</background>
+</jasperReport>
