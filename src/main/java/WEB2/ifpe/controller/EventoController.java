@@ -31,14 +31,14 @@ public class EventoController {
 		
 	@GetMapping("/listarEvento")
 	public String exibirLista(Model model) {
-		model.addAttribute("lista", this.eventoService.listarTodos(Sort.by("nomeAtividade")));
+		model.addAttribute("lista", this.eventoService.listarTodos(Sort.by("data")));
 		return "listas/listar-evento";
 	}
 	
 	@GetMapping("/exibirFormEvento")
 	public String exibirForm(Evento evento , Model model) {
 		model.addAttribute("listaPalestrante", palestranteService.listarTodos(Sort.by("nome")));
-		model.addAttribute("listaSala", salaService.listarTodos(Sort.by("numero")));
+		model.addAttribute("listaSala", salaService.listarTodos(Sort.by("nome")));
 		return "cadastros/cadastrar-evento";
 	}
 	
@@ -46,7 +46,7 @@ public class EventoController {
 	public String editarProduto(Integer idEvento, Model model) {
 		model.addAttribute("evento", this.eventoService.obterPorId(idEvento));
 		model.addAttribute("listaPalestrante", this.palestranteService.listarTodos(Sort.by("nome")));
-		model.addAttribute("listaSala", this.salaService.listarTodos(Sort.by("numero")));
+		model.addAttribute("listaSala", this.salaService.listarTodos(Sort.by("nome")));
 		return "evento/evento-form";
 	}
 	

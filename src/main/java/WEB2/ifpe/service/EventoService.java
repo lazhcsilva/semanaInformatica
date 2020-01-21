@@ -51,13 +51,15 @@ public class EventoService {
 		}
 		
 		/**verifica se já existe uma palestra em dado horário**/
-		List<Evento> eventoByDate = eventoDAO.findByDataAndSala(evento.getData(), evento.getSala().getIdSala());
-		for(Evento eventoIndex: eventoByDate ) {
-			if(eventoIndex.getHoraInicio().isAfter(evento.getHoraInicio()) && eventoIndex.getHoraInicio().isBefore(evento.getHoraFim())
-					|| eventoIndex.getHoraFim().isAfter(evento.getHoraInicio()) && eventoIndex.getHoraFim().isBefore(evento.getHoraFim())) {
-				throw new ServiceException("Já existe uma palestra reservada nesse horário");
-			}
-		}
+//		List<Evento> eventoByDate = eventoDAO.findByDataAndSala(evento.getData(), evento.getSala().getIdSala());
+//		for (Evento eventoIndex : eventoByDate) {
+//			if (eventoIndex.getHoraInicio().isAfter(evento.getHoraInicio())
+//					&& eventoIndex.getHoraInicio().isBefore(evento.getHoraFim())
+//					|| eventoIndex.getHoraFim().isAfter(evento.getHoraInicio())
+//							&& eventoIndex.getHoraFim().isBefore(evento.getHoraFim())) {
+//				throw new ServiceException("Já existe uma palestra reservada nesse horário");
+//			}
+//		}
 			
 	}
 	

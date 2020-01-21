@@ -1,49 +1,61 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-xmlns:th="http://www.thymeleaf.org">
+	xmlns:th="http://www.thymeleaf.org">
 <head>
-  <meta charset="utf-8">
-  <title>SIIFEPE -Programação</title>
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <meta content="" name="keywords">
-  <meta content="" name="description">
-  
-  <!-- Favicons -->
-  <link href="assets/img/favicon.png" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+<meta charset="utf-8">
+<title>SIIFEPE -Programação</title>
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<meta content="" name="keywords">
+<meta content="" name="description">
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,500,600,700,700i|Montserrat:300,400,500,600,700" rel="stylesheet">
+<!-- Favicons -->
+<link href="assets/img/favicon.png" rel="icon">
+<link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
-  <!-- Bootstrap CSS File -->
-  <link rel="stylesheet" href="assets/lib/bootstrap/css/bootstrap.min.css">
-  <link href="assets/img/favicon.png" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+<!-- Google Fonts -->
+<link
+	href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,500,600,700,700i|Montserrat:300,400,500,600,700"
+	rel="stylesheet">
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,500,600,700,700i|Montserrat:300,400,500,600,700" rel="stylesheet">
-  
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-  <!-- Bootstrap CSS File -->
-  <link rel="stylesheet" href="assets/lib/bootstrap/css/bootstrap.min.css">
+<!-- Bootstrap CSS File -->
+<link rel="stylesheet" href="assets/lib/bootstrap/css/bootstrap.min.css">
+<link href="assets/img/favicon.png" rel="icon">
+<link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
-  <!-- Libraries CSS Files -->
-   <link rel="stylesheet" href="assets/css/index.css">
-  <link rel="stylesheet" href="assets/lib/font-awesome/css/font-awesome.min.css">
-  <link href="assets/lib/animate/animate.min.css" rel="stylesheet">
-  <link href="assets/lib/ionicons/css/ionicons.min.css" rel="stylesheet">
-  <link href="assets/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-  <link href="assets/lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+<!-- Google Fonts -->
+<link
+	href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,500,600,700,700i|Montserrat:300,400,500,600,700"
+	rel="stylesheet">
 
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+<!-- Bootstrap CSS File -->
+<link rel="stylesheet" href="assets/lib/bootstrap/css/bootstrap.min.css">
+
+<!-- Libraries CSS Files -->
+<link rel="stylesheet" href="assets/css/index.css">
+<link rel="stylesheet" href="assets/lib/font-awesome/css/font-awesome.min.css">
+<link href="assets/lib/animate/animate.min.css" rel="stylesheet">
+<link href="assets/lib/ionicons/css/ionicons.min.css" rel="stylesheet">
+<link href="assets/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+<link href="assets/lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 
 <link rel="stylesheet" href="assets/css/util.css">
 
-  <!-- Main Stylesheet File -->
-  <link rel="stylesheet" href="assets/css/style.css">
+<!-- Main Stylesheet File -->
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="assets/css/programacao.css">
 
 
-  <!-- =======================================================
+<!-- =======================================================
     Theme Name: Rapid
     Theme URL: https://bootstrapmade.com/rapid-multipurpose-bootstrap-business-template/
     Author: BootstrapMade.com
@@ -52,396 +64,168 @@ xmlns:th="http://www.thymeleaf.org">
 </head>
 
 <body>
- <header id="header">
+	<header id="header">
 
-    <div class="container">
+		<div class="container">
 
-      <div class="logo float-left">
-        <h1 class="text-light"><a href="#intro" class="scrollto"><span>IFPE</span></a></h1>
-      </div>
-
-      <nav class="main-nav float-right d-none d-lg-block">
-        <ul>
-          <li class="active"><a href="#intro"><img src="./assets/img/home.png"></img>Home</a></li>
-           <li><a class="ml-3"  href="/programacao"><img src="./assets/img/programacao.png"></img>Programação</a></li>
-          <li><a th:if="${session.usuarioLogado == null}" href="/login"><img src="/assets/img/login.png"></img>Login</a></li>
-          <li><a th:if="${session.usuarioLogado == null}" href="/exibirFormParticipante"><img src="./assets/img/cad.png"></img>Cadastro</a></li>
-          <li>
-		    <div class="dropdown" th:if="${session.usuarioLogado != null}">
-			  	<a href="#" data-toggle="dropdown">
-			  	<span ><img src="./assets/img/avatar.png"></img></span>
-			   		<span  th:text="${session.usuarioLogado.nome}"></span>
-			 	 </a>
-			 	 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-			    <a class="dropdown-item" href="#">Configurações</a>
-			    
-			    <a class="dropdown-item" href="/deslogar">Sair</a>
-		  		</div>
+			<div class="logo float-left">
+				<h1 class="text-light">
+					<a href="#intro" class="scrollto"><span>IFPE</span></a>
+				</h1>
 			</div>
-          </li>
-        </ul>
-        
-      </nav><!-- .main-nav -->
-      	
-    </div>
-  </header><!-- #header -->
-  <!--==========================
+
+			<nav class="main-nav float-right d-none d-lg-block">
+				<ul>
+					<li class="active"><a href="#intro"><img src="./assets/img/home.png"></img>Home</a></li>
+					<li><a class="ml-3" href="/programacao"><img src="./assets/img/programacao.png"></img>Programação</a></li>
+					<li><a th:if="${session.usuarioLogado == null}" href="/login"><img src="/assets/img/login.png"></img>Login</a></li>
+					<li><a th:if="${session.usuarioLogado == null}" href="/exibirFormParticipante"><img src="./assets/img/cad.png"></img>Cadastro</a></li>
+					<li>
+						<div class="dropdown" th:if="${session.usuarioLogado != null}">
+							<a href="#" data-toggle="dropdown"> <span><img
+									src="./assets/img/avatar.png"></img></span> <span
+								th:text="${session.usuarioLogado.nome}"></span>
+							</a>
+							<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+								<a class="dropdown-item" href="#">Configurações</a> <a
+									class="dropdown-item" href="/deslogar">Sair</a>
+							</div>
+						</div>
+					</li>
+				</ul>
+
+			</nav>
+			<!-- .main-nav -->
+
+		</div>
+	</header>
+	<!-- #header -->
+	<!--==========================
     Intro Section
   ============================-->
-  <br><br>
-  <section id="intro" class="clearfix">
-    <div class="container d-flex h-100">
-      <div class="row justify-content-center">
-        <div class="col-md-12 intro-info order-md-first order-last">
-          <h2>Programação da Semana de Informática IFPE</h2>
-         <center> <h3>Campus Jaboatão dos Guararapes</h3>
-          <h5> De 27/01 á 30/01<br></h5></center> 
-          
-        </div>
-         
-         
-         
-         <div class="row">
-  <div class="col-sm-6">
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title">Aprendendo html</h5>
-        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-        <span th:if="${session.usuarioLogado != null}"><a href="#" class="btn btn-primary">Go somewhere</a></span>
-        <span th:if="${session.usuarioLogado == null}"><a  >Entre para se casdastrar</a></span>
-      </div>
-    </div>
-  </div>
-  <div class="col-sm-6">
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title">Special title treatment</h5>
-        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
-      </div>
-    </div>
-  </div>
-</div>
+	<br>
+	<br>
+	<section class="card3">
+		<div class="card" style="width: 25rem;" th:each="evento : ${lista}">
+			<div class="card-body">
+				<h5 class="card-title" th:text="${evento.nomeAtividade}"></h5>
+				<h6 class="card-subtitle mb-2 text-muted">Responsavel</h6><h6 class="card-subtitle mb-2 text-muted" th:text="${evento.palestrante.nome}"></h6>
+				<p class="card-text" th:text="${evento.descricao}"></p>
+				<a href="#" class="card-link">Inscrever</a>
+				<p class="card-subtitle mb-2 text-muted">Vagas</p><p></p>
+			</div>
+		</div>
+	</section>
 
 
+	<a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+	<!-- Uncomment below i you want to use a preloader -->
+	<!-- <div id="preloader"></div> -->
 
+	<!-- JavaScript Libraries -->
+	<script src="assets/lib/jquery/jquery.min.js"></script>
+	<script src="assets/lib/jquery/jquery-migrate.min.js"></script>
+	<script src="assets/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+	<script src="assets/lib/easing/easing.min.js"></script>
+	<script src="assets/lib/mobile-nav/mobile-nav.js"></script>
+	<script src="assets/lib/wow/wow.min.js"></script>
+	<script src="assets/lib/waypoints/waypoints.min.js"></script>
+	<script src="assets/lib/counterup/counterup.min.js"></script>
+	<script src="assets/lib/owlcarousel/owl.carousel.min.js"></script>
+	<script src="assets/lib/isotope/isotope.pkgd.min.js"></script>
+	<script src="assets/lib/lightbox/js/lightbox.min.js"></script>
+	<!-- Contact Form JavaScript File -->
+	<script src="assets/contactform/contactform.js"></script>
+	<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+	<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-<div class="row">
-  <div class="col-sm-6">
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title">Special title treatment</h5>
-        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
-      </div>
-    </div>
-  </div>
-  <div class="col-sm-6">
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title">Special title treatment</h5>
-        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
-      </div>
-    </div>
-  </div>
-</div>
+	<!-- Template Main Javascript File -->
+	<script src="assets/js/main.js"></script>
+	<!-- footer -->
+	<div class="footer">
+		<div class="container">
+			<div class="row ">
+				<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ">
+					<h1 class="text-light">
+						<a href="#intro" class="scrollto"><span>IFPE</span></a>
+					</h1>
+					<div class="ft-logo">
+						<!-- <img src="assets/img/iftech.png" alt=""> -->
+					</div>
+				</div>
+			</div>
+			<hr class="footer-line">
+			<div class="row ">
+				<!-- footer-about -->
+				<div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-6 ">
+					<div class="footer-widget ">
+						<div class="footer-title">Empresa</div>
+						<ul class="list-unstyled">
+							<li><a href="#">Sobre nós</a></li>
+							<li><a href="#">Contato</a></li>
+							<li><a href="#">Politica de privacidade</a></li>
+						</ul>
+					</div>
+				</div>
+				<!-- /.footer-about -->
+				<!-- footer-links -->
+				<div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-6 ">
+					<div class="footer-widget ">
+						<div class="footer-title">Atividades</div>
+						<ul class="list-unstyled">
+							<li><a href="#">Inscreva-se</a></li>
+							<li><a href="#">Certificados</a></li>
+							<li><a href="#">Eventos</a></li>
+						</ul>
+					</div>
+				</div>
+				<!-- /.footer-links -->
+				<!-- footer-links -->
+				<div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-6 ">
+					<div class="footer-widget ">
+						<div class="footer-title">Social</div>
+						<ul class="list-unstyled">
 
-        </div>
-        </div>
-        </section>
-        
-       <section id="intro" class="clearfix">
-   		 <div class="container d-flex h-100">
-      <div class="row justify-content-center">
-     
-    
-        
-<div class="row">
-  <div class="col-sm-6">
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title">Special title treatment</h5>
-        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
-      </div>
-    </div>
-  </div>
-  <div class="col-sm-6">
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title">Special title treatment</h5>
-        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-        
-<div class="row">
-  <div class="col-sm-6">
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title">Special title treatment</h5>
-        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
-      </div>
-    </div>
-  </div>
-  <div class="col-sm-6">
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title">Special title treatment</h5>
-        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-        
-<div class="row">
-  <div class="col-sm-6">
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title">Special title treatment</h5>
-        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
-      </div>
-    </div>
-  </div>
-  <div class="col-sm-6">
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title">Special title treatment</h5>
-        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
-      </div>
-    </div>
-  </div>
-</div>
-        
-        </div>
-         </div>
-		
-        </section>
-
-
-
-  
-       <section id="intro" class="clearfix">
-   		 <div class="container d-flex h-100">
-      <div class="row justify-content-center">
-     
-    
-        
-<div class="row">
-  <div class="col-sm-6">
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title">Special title treatment</h5>
-        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
-      </div>
-    </div>
-  </div>
-  <div class="col-sm-6">
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title">Special title treatment</h5>
-        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-        
-<div class="row">
-  <div class="col-sm-6">
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title">Special title treatment</h5>
-        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
-      </div>
-    </div>
-  </div>
-  <div class="col-sm-6">
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title">Special title treatment</h5>
-        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-        
-<div class="row">
-  <div class="col-sm-6">
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title">Special title treatment</h5>
-        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
-      </div>
-    </div>
-  </div>
-  <div class="col-sm-6">
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title">Special title treatment</h5>
-        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
-      </div>
-    </div>
-  </div>
-</div>
-        
-        </div>
-         </div>
-		
-        </section>
-        
-        
-        
-               <section id="intro" class="clearfix">
-   		 <div class="container d-flex h-30">
-      <div class="row justify-content-center">
-        
-        <div class="card-deck">
-  <div class="card">
-    <img class="card-img-top" src="..." alt="Card image cap">
-    <div class="card-body">
-      <h5 class="card-title">Card title</h5>
-      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-    </div>
-    <div class="card-footer">
-      <small class="text-muted">Last updated 3 mins ago</small>
-    </div>
-  </div>
-  <div class="card">
-    <img class="card-img-top" src="..." alt="Card image cap">
-    <div class="card-body">
-      <h5 class="card-title">Card title</h5>
-      <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-    </div>
-    <div class="card-footer">
-      <small class="text-muted">Last updated 3 mins ago</small>
-    </div>
-  </div>
-
-    </div>
-         </div>
-		
-        </section>
- 
-
-  <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
-  <!-- Uncomment below i you want to use a preloader -->
-  <!-- <div id="preloader"></div> -->
-
-  <!-- JavaScript Libraries -->
-  <script src="assets/lib/jquery/jquery.min.js"></script>
-  <script src="assets/lib/jquery/jquery-migrate.min.js"></script>
-  <script src="assets/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/lib/easing/easing.min.js"></script>
-  <script src="assets/lib/mobile-nav/mobile-nav.js"></script>
-  <script src="assets/lib/wow/wow.min.js"></script>
-  <script src="assets/lib/waypoints/waypoints.min.js"></script>
-  <script src="assets/lib/counterup/counterup.min.js"></script>
-  <script src="assets/lib/owlcarousel/owl.carousel.min.js"></script>
-  <script src="assets/lib/isotope/isotope.pkgd.min.js"></script>
-  <script src="assets/lib/lightbox/js/lightbox.min.js"></script>
-  <!-- Contact Form JavaScript File -->
-  <script src="assets/contactform/contactform.js"></script>
-  <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
-  <!-- Template Main Javascript File -->
-  <script src="assets/js/main.js"></script>
-      <!-- footer -->
-    <div class="footer">
-        <div class="container">
-            <div class="row ">
-                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ">
-                 <h1 class="text-light"><a href="#intro" class="scrollto"><span>IFPE</span></a></h1>
-                    <div class="ft-logo"><!-- <img src="assets/img/iftech.png" alt=""> --></div>
-                </div>
-            </div>
-            <hr class="footer-line">
-            <div class="row ">
-                <!-- footer-about -->
-                <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-6 ">
-                    <div class="footer-widget ">
-                        <div class="footer-title">Empresa</div>
-                        <ul class="list-unstyled">
-                            <li><a href="#">Sobre nós</a></li>
-                            <li><a href="#">Contato</a></li>
-                            <li><a href="#">Politica de privacidade</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <!-- /.footer-about -->
-                <!-- footer-links -->
-                <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-6 ">
-                    <div class="footer-widget ">
-                        <div class="footer-title">Atividades</div>
-                        <ul class="list-unstyled">
-                            <li><a href="#">Inscreva-se</a></li>
-                            <li><a href="#">Certificados</a></li>
-                            <li><a href="#">Eventos</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <!-- /.footer-links -->
-                <!-- footer-links -->
-                <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-6 ">
-                    <div class="footer-widget ">
-                        <div class="footer-title">Social</div>
-                        <ul class="list-unstyled">
-                           
-                            <li><a href="#">Google +</a></li>
-                            <li><a href="#">Linked In</a></li>
-                            <li><a href="#">Facebook</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <!-- /.footer-links -->
-                <!-- footer-links -->
-                <div class="col-xl-3 col-lg-3 col-md-12 col-sm-6 col-6 ">
-                    <div class="footer-widget ">
-                        <h3 class="footer-title">Receba informações por email</h3>
-                        <form>
-                            <div class="newsletter-form">
-                                <input class="form-control" placeholder="Digite seu email" type="text">
-                                <button class="btn btn-default btn-sm" type="submit">Go</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-                <!-- /.footer-links -->
-                <!-- tiny-footer -->
-            </div>
-            <div class="row ">
-                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 text-center ">
-                    <div class="tiny-footer">
-                        <p>Copyright © All Rights Reserved 2020 | Template Design & Development by <a href=";;;; " target="_blank" class="copyrightlink"> TIJG NOITE</a></p>
-                    </div>
-                </div>
-                <!-- /. tiny-footer -->
-            </div>
-        </div>
-    </div>
-    <!-- /.footer -->
+							<li><a href="#">Google +</a></li>
+							<li><a href="#">Linked In</a></li>
+							<li><a href="#">Facebook</a></li>
+						</ul>
+					</div>
+				</div>
+				<!-- /.footer-links -->
+				<!-- footer-links -->
+				<div class="col-xl-3 col-lg-3 col-md-12 col-sm-6 col-6 ">
+					<div class="footer-widget ">
+						<h3 class="footer-title">Receba informações por email</h3>
+						<form>
+							<div class="newsletter-form">
+								<input class="form-control" placeholder="Digite seu email"
+									type="text">
+								<button class="btn btn-default btn-sm" type="submit">Go</button>
+							</div>
+						</form>
+					</div>
+				</div>
+				<!-- /.footer-links -->
+				<!-- tiny-footer -->
+			</div>
+			<div class="row ">
+				<div
+					class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 text-center ">
+					<div class="tiny-footer">
+						<p>
+							Copyright © All Rights Reserved 2020 | Template Design &
+							Development by <a href=";;;; " target="_blank"
+								class="copyrightlink"> TIJG NOITE</a>
+						</p>
+					</div>
+				</div>
+				<!-- /. tiny-footer -->
+			</div>
+		</div>
+	</div>
+	<!-- /.footer -->
 
 </body>
 </html>

@@ -46,16 +46,10 @@ public class SalaController {
 	
 	@PostMapping("/salvarSala")
 	public String salvarSala(@Valid Sala sala, BindingResult br, RedirectAttributes ra, Model model) {      
-		
-		if (br.hasErrors()) {
-		
-			return this.exibirForm(sala);
-		
-		}
 
 		this.salaService.novaSala(sala);
 
-		return "redirect:/listarSala";
+		return "redirect:/gestor";
 		
 	}
 }

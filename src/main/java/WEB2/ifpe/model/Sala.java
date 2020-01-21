@@ -1,31 +1,23 @@
 package WEB2.ifpe.model;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Size;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Sala {
 
-
 	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer idSala;
 	
-	@NotBlank(message = "O Numero Da Sala deve ser preenchido")
-	@Column(length = 4)
-	@Size(min = 1, max = 4, message = "o numero maximo para sala é 9999")
-	private String numero;
+	private String nome;
 	
+	private Integer capacidade;
 	
-	@Min(value = 1, message = "Capacidade deve ser informada, no min 1")
-	@Max(value = 9999, message = "Capacidade deve ter no maximo até 9999 ")
-	private int capacidade;
+	@ManyToOne
+	private Evento evento;
 
 	public Integer getIdSala() {
 		return idSala;
@@ -35,20 +27,28 @@ public class Sala {
 		this.idSala = idSala;
 	}
 
-	public String getNumero() {
-		return numero;
+	public String getNome() {
+		return nome;
 	}
 
-	public void setNumero(String numero) {
-		this.numero = numero;
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
 
-	public int getCapacidade() {
+	public Integer getCapacidade() {
 		return capacidade;
 	}
 
-	public void setCapacidade(int capacidade) {
+	public void setCapacidade(Integer capacidade) {
 		this.capacidade = capacidade;
 	}
 
+	public Evento getEvento() {
+		return evento;
+	}
+
+	public void setEvento(Evento evento) {
+		this.evento = evento;
+	}
+	
 }

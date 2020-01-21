@@ -12,7 +12,6 @@ import javax.persistence.ManyToOne;
 @Entity
 public class Evento {
 
-	
 	@Id
 	@GeneratedValue(strategy =GenerationType.AUTO)
 	private Integer idEvento;
@@ -34,7 +33,7 @@ public class Evento {
 	
 	@ManyToOne
 	private Sala sala;
-
+	
 	public Integer getIdEvento() {
 		return idEvento;
 	}
@@ -106,5 +105,7 @@ public class Evento {
 	public void setHoraFim(LocalTime horaFim) {
 		this.horaFim = horaFim;
 	}
+	
+	
 	
 }

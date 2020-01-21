@@ -24,14 +24,14 @@ public class SalaService {
 	}
 	
 	public void remover(Integer idSala) {
-		// TODO Auto-generated method stub
+		
 		this.salaDAO.deleteById(idSala);
 		
 	}
 	
 	public Sala novaSala(Sala sala){
 		
-		Sala SalaComNumeroExistente = this.salaDAO.findByNumero(sala.getNumero());
+		Sala SalaComNumeroExistente = this.salaDAO.findByNome(sala.getNome());
 		
 		if (SalaComNumeroExistente == null) {
 			this.save(sala);

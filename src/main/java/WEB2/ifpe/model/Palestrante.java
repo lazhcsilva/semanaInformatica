@@ -6,6 +6,7 @@ import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotBlank;
 
 import WEB2.ifpe.enums.TipoPalestranteEnum;
@@ -26,6 +27,9 @@ public class Palestrante {
 	private String senha;
 	
 	private String cpf;
+	
+	@ManyToOne
+	private Evento evento;
 
 	@Enumerated(EnumType.ORDINAL)
 	private TipoPalestranteEnum tipoPalestrante = TipoPalestranteEnum.PADRAO;
@@ -76,6 +80,14 @@ public class Palestrante {
 
 	public void setTipoPalestrante(TipoPalestranteEnum tipoPalestrante) {
 		this.tipoPalestrante = tipoPalestrante;
+	}
+
+	public Evento getEvento() {
+		return evento;
+	}
+
+	public void setEvento(Evento evento) {
+		this.evento = evento;
 	}
 	
 	

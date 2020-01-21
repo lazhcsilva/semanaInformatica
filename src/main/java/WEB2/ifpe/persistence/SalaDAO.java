@@ -8,7 +8,7 @@ public interface SalaDAO extends JpaRepository<Sala, Integer> {
 
 	
 
-	Sala findByNumero(String numero);
+	Sala findByNome(String nome);
 
 	
 }
